@@ -4,7 +4,7 @@
     spacing: 10
 
     Button:
-        text: "🎤 Pradėti įrašymą"
+        text: "Pradėti įrašymą"
         size_hint_y: 0.1
         on_press: root.start_recording()
 
@@ -19,11 +19,11 @@
         spacing: 10
 
         Button:
-            text: "🗑️ Išvalyti tekstą"
+            text: "Išvalyti tekstą"
             on_press: root.clear_text()
 
     Label:
-        text: "🔎 Atpažinti produktai"
+        text: "Atpažinti produktai"
         size_hint_y: 0.05
 
     ScrollView:
@@ -39,9 +39,5 @@
         spacing: 10
 
         Button:
-            text: "➕ Pridėti produktą"
+            text: "Pridėti produktą"
             on_press: root.add_product()
-
-        Button:
-            text: "🔄 Atnaujinti sąrašą"
-            on_press: root.update_product_list()
