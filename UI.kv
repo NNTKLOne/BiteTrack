@@ -1,0 +1,47 @@
+<MainScreen>:
+    orientation: 'vertical'
+    padding: 10
+    spacing: 10
+
+    Button:
+        text: "🎤 Pradėti įrašymą"
+        size_hint_y: 0.1
+        on_press: root.start_recording()
+
+    TextInput:
+        id: transcription
+        hint_text: "Čia bus rodomas transkribuotas tekstas"
+        size_hint_y: 0.2
+        multiline: True
+
+    BoxLayout:
+        size_hint_y: 0.1
+        spacing: 10
+
+        Button:
+            text: "🗑️ Išvalyti tekstą"
+            on_press: root.clear_text()
+
+    Label:
+        text: "🔎 Atpažinti produktai"
+        size_hint_y: 0.05
+
+    ScrollView:
+        size_hint_y: 0.5
+        GridLayout:
+            id: product_list
+            cols: 1
+            size_hint_y: None
+            height: self.minimum_height
+
+    BoxLayout:
+        size_hint_y: 0.1
+        spacing: 10
+
+        Button:
+            text: "➕ Pridėti produktą"
+            on_press: root.add_product()
+
+        Button:
+            text: "🔄 Atnaujinti sąrašą"
+            on_press: root.update_product_list()
