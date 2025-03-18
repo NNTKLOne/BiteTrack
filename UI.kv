@@ -41,3 +41,21 @@
         Button:
             text: "Pridėti produktą"
             on_press: root.add_product()
+
+
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint_y: 0.3
+        spacing: 10
+
+        Button:
+            text: "Įvedimas"
+            on_press:
+                root.load_main_page()
+                (0.3, 0.5, 0.8, 1)
+
+        Button:
+            text: "Statistika"
+            on_press:
+                root.load_statistics()
+                (0.3, 0.5, 0.8, 1)

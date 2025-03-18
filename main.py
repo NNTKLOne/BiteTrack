@@ -11,6 +11,8 @@ from kivy.uix.popup import Popup
 # Laikinas produktų sąrašas (vietoj DB)
 PRODUCTS = []
 
+Builder.load_file("UI.kv")
+
 class MainScreen(BoxLayout):
 
     # Pradėti įrašymą
@@ -18,6 +20,10 @@ class MainScreen(BoxLayout):
         print("🔴 Pradėtas įrašymas...")
         # Čia būtų vieta Whisper API integracijai
         self.ids.transcription.text = "Tai pavyzdinis transkribuotas tekstas."
+
+    def load_statistics(self):
+        Builder.load_file("statistics.kv")
+
 
     # Išvalyti transkribuotą tekstą
     def clear_text(self):
@@ -94,7 +100,6 @@ class MainScreen(BoxLayout):
 
 class MyApp(App):
     def build(self):
-        Builder.load_file("UI.kv")
         return MainScreen()
 
 if __name__ == "__main__":
