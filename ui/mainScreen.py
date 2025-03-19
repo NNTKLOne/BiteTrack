@@ -3,6 +3,8 @@ from kivy.lang import Builder
 from kivy.uix.button import Button
 from kivy.uix.screenmanager import Screen, ScreenManager
 
+from ui.statisticsScreen import StatisticsScreen
+
 # Laikinas produktų sąrašas (vietoj DB)
 PRODUCTS = []
 
@@ -98,11 +100,6 @@ class MainScreen(Screen):
 
         popup = Popup(title="Redaguoti produktą", content=content, size_hint=(0.8, 0.5))
         popup.open()
-
-class StatisticsScreen(Screen):
-
-    def go_back(self):
-        self.manager.current = "main"
 
 class MyApp(App):
     def build(self):

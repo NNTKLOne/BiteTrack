@@ -53,11 +53,7 @@
             spacing: 10
 
             Button:
-                text: "Įvedimas"
-                on_press: root.load_main_page()
-
-            Button:
-                text: "Statistika"
+                text: "Statistika ->"
                 on_press: root.load_statistics()
 
 <StatisticsScreen>:
@@ -83,7 +79,7 @@
                 height: self.minimum_height
 
         Button:
-            text: "Grįžti atgal"
+            text: "<- Grįžti į pagrindinį"
             size_hint_y: None
             height: 40
             on_press: root.go_back()
