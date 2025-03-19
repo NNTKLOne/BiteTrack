@@ -1,52 +1,49 @@
 from kivy.app import App
 from kivy.lang import Builder
-from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
-from kivy.uix.textinput import TextInput
-from kivy.uix.label import Label
-from kivy.uix.scrollview import ScrollView
-from kivy.uix.gridlayout import GridLayout
-from kivy.uix.popup import Popup
+from kivy.uix.screenmanager import Screen, ScreenManager
 
 # Laikinas produktų sąrašas (vietoj DB)
 PRODUCTS = []
 
+# Užkrauname UI failą
 Builder.load_file("UI.kv")
 
-class MainScreen(BoxLayout):
+class MainScreen(Screen):
 
-    # Pradėti įrašymą
     def start_recording(self):
         print("🔴 Pradėtas įrašymas...")
-        # Čia būtų vieta Whisper API integracijai
         self.ids.transcription.text = "Tai pavyzdinis transkribuotas tekstas."
 
-    def load_statistics(self):
-        Builder.load_file("statistics.kv")
-
-
-    # Išvalyti transkribuotą tekstą
     def clear_text(self):
         self.ids.transcription.text = ""
 
-    # Atnaujinti produktų sąrašą
+    def send_to_llm(self):
+        self.clear_text()
+        # Siuntimas į LLM būtų čia
+
+    def load_statistics(self):
+        self.manager.current = "statistics"
+
     def update_product_list(self):
         product_list = self.ids.product_list
         product_list.clear_widgets()
 
         for product in PRODUCTS:
-            # Sukuriame mygtuką kiekvienam produktui
             product_button = Button(
                 text=f"{product['name']} - {product['category']}",
                 size_hint_y=None,
                 height=40
             )
-            # Pridedame redagavimo galimybę
             product_button.bind(on_release=lambda btn, p=product: self.edit_product(p))
             product_list.add_widget(product_button)
 
-    # Pridėti naują produktą
     def add_product(self):
+        from kivy.uix.boxlayout import BoxLayout
+        from kivy.uix.textinput import TextInput
+        from kivy.uix.button import Button
+        from kivy.uix.popup import Popup
+
         content = BoxLayout(orientation="vertical", spacing=10)
         name_input = TextInput(hint_text="Produkto pavadinimas")
         category_input = TextInput(hint_text="Kategorija")
@@ -67,8 +64,12 @@ class MainScreen(BoxLayout):
         popup = Popup(title="Pridėti naują produktą", content=content, size_hint=(0.8, 0.5))
         popup.open()
 
-    # Redaguoti arba ištrinti produktą
     def edit_product(self, product):
+        from kivy.uix.boxlayout import BoxLayout
+        from kivy.uix.textinput import TextInput
+        from kivy.uix.button import Button
+        from kivy.uix.popup import Popup
+
         content = BoxLayout(orientation="vertical", spacing=10)
         name_input = TextInput(text=product['name'])
         category_input = TextInput(text=product['category'])
@@ -98,9 +99,17 @@ class MainScreen(BoxLayout):
         popup = Popup(title="Redaguoti produktą", content=content, size_hint=(0.8, 0.5))
         popup.open()
 
+class StatisticsScreen(Screen):
+
+    def go_back(self):
+        self.manager.current = "main"
+
 class MyApp(App):
     def build(self):
-        return MainScreen()
+        sm = ScreenManager()
+        sm.add_widget(MainScreen(name="main"))
+        sm.add_widget(StatisticsScreen(name="statistics"))
+        return sm
 
 if __name__ == "__main__":
     MyApp().run()
