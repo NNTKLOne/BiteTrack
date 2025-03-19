@@ -2,102 +2,102 @@ import sqlite3
 
 DB_FILE = "data.db"
 
-# Funkcija prisijungimui prie duomenų bazės
-def get_connection():
-    conn = sqlite3.connect(DB_FILE)
-    conn.row_factory = sqlite3.Row
-    return conn
+class Database:
 
-# Funkcija lentelių sukūrimui
-def create_tables():
-    conn = get_connection()
-    cursor = conn.cursor()
+    def __init__(self):
+        self.db_file = DB_FILE
+        self.create_tables()
 
-    # Lentelė įrašų saugojimui
-    cursor.execute('''
-    CREATE TABLE IF NOT EXISTS Recording (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        file_path TEXT NOT NULL,
-        duration REAL NOT NULL,
-        size INTEGER NOT NULL,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-    )
-    ''')
+    def get_connection(self):
+        conn = sqlite3.connect(self.db_file)
+        conn.row_factory = sqlite3.Row
+        return conn
 
-    # Lentelė transkripcijų saugojimui
-    cursor.execute('''
-    CREATE TABLE IF NOT EXISTS Transcription (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        recording_id INTEGER NOT NULL,
-        text TEXT NOT NULL,
-        confidence REAL NOT NULL,
-        language_detected TEXT NOT NULL,
-        processed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        FOREIGN KEY(recording_id) REFERENCES Recording(id) ON DELETE CASCADE
-    )
-    ''')
+    def create_tables(self):
+        conn = self.get_connection()
+        cursor = conn.cursor()
 
-    # Lentelė produktų saugojimui
-    cursor.execute('''
-    CREATE TABLE IF NOT EXISTS Product (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        transcription_id INTEGER NOT NULL,
-        product_name TEXT NOT NULL,
-        category TEXT NOT NULL,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        FOREIGN KEY(transcription_id) REFERENCES Transcription(id) ON DELETE CASCADE
-    )
-    ''')
+        cursor.execute('''
+        CREATE TABLE IF NOT EXISTS Recording (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            file_path TEXT NOT NULL,
+            duration REAL NOT NULL,
+            file_size INTEGER NOT NULL,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        )
+        ''')
 
-    conn.commit()
-    conn.close()
+        cursor.execute('''
+        CREATE TABLE IF NOT EXISTS Transcription (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            recording_id INTEGER NOT NULL,
+            text TEXT NOT NULL,
+            confidence REAL NOT NULL,
+            language_detected TEXT NOT NULL,
+            processed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY(recording_id) REFERENCES Recording(id) ON DELETE CASCADE
+        )
+        ''')
 
-def add_recording(file_path, duration, size):
-    conn = get_connection()
-    cursor = conn.cursor()
-    cursor.execute('INSERT INTO Recording (file_path, duration, size) VALUES (?, ?, ?)',
-                   (file_path, duration, size))
-    conn.commit()
-    conn.close()
+        cursor.execute('''
+        CREATE TABLE IF NOT EXISTS Product (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            product_name TEXT NOT NULL,
+            category TEXT NOT NULL,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        )
+        ''')
 
-def add_transcription(recording_id, text, confidence, language):
-    conn = get_connection()
-    cursor = conn.cursor()
-    cursor.execute('INSERT INTO Transcription (recording_id, text, confidence, language_detected) VALUES (?, ?, ?, ?)',
-                   (recording_id, text, confidence, language))
-    conn.commit()
-    conn.close()
+        conn.commit()
+        conn.close()
+
+    def add_recording(self, file_path, duration, size):
+        conn = self.get_connection()
+        cursor = conn.cursor()
+        cursor.execute('INSERT INTO Recording (file_path, duration, file_size) VALUES (?, ?, ?)',
+                       (file_path, duration, size))
+        conn.commit()
+        conn.close()
+
+    def add_transcription(self, recording_id, text, confidence, language):
+        conn = self.get_connection()
+        cursor = conn.cursor()
+        cursor.execute(
+            'INSERT INTO Transcription (recording_id, text, confidence, language_detected) VALUES (?, ?, ?, ?)',
+            (recording_id, text, confidence, language))
+        conn.commit()
+        conn.close()
 
 
-def add_product(transcription_id, product_name, category, confidence):
-    conn = get_connection()
-    cursor = conn.cursor()
-    cursor.execute('INSERT INTO Product (transcription_id, product_name, category, confidence) VALUES (?, ?, ?, ?)',
-                   (transcription_id, product_name, category, confidence))
-    conn.commit()
-    conn.close()
+    def add_product(self, product_name, category):
+        conn = self.get_connection()
+        cursor = conn.cursor()
+        cursor.execute('INSERT INTO Product (product_name, category) VALUES (?, ?)',
+                       (product_name, category))
+        conn.commit()
+        conn.close()
 
-def get_all_products():
-    conn = get_connection()
-    cursor = conn.cursor()
-    cursor.execute('SELECT * FROM Product')
-    products = cursor.fetchall()
-    conn.close()
-    return [dict(p) for p in products]
 
-def delete_product(product_id):
-    conn = get_connection()
-    cursor = conn.cursor()
-    cursor.execute('DELETE FROM Product WHERE id = ?', (product_id,))
-    conn.commit()
-    conn.close()
+    def get_all_products(self):
+        conn = self.get_connection()
+        cursor = conn.cursor()
+        cursor.execute('SELECT * FROM Product')
+        products = cursor.fetchall()
+        conn.close()
+        return [dict(p) for p in products]
 
-def get_products_today():
-    conn = get_connection()
-    cursor = conn.cursor()
-    cursor.execute("SELECT * FROM Product WHERE DATE(created_at) = DATE('now')")
-    products = cursor.fetchall()
-    conn.close()
-    return [dict(p) for p in products]
 
-create_tables()
+    def delete_product(self, product_id):
+        conn = self.get_connection()
+        cursor = conn.cursor()
+        cursor.execute('DELETE FROM Product WHERE id = ?', (product_id,))
+        conn.commit()
+        conn.close()
+
+    def get_products_today(self):
+        conn = self.get_connection()
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM Product WHERE DATE(created_at) = DATE('now')")
+        products = cursor.fetchall()
+        conn.close()
+        return [dict(p) for p in products]

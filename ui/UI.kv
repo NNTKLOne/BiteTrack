@@ -62,11 +62,13 @@
         padding: 10
         spacing: 10
 
-        Label:
-            text: "Statistika"
+        # ✅ Filtras (Dropdown)
+        Spinner:
+            text: 'filtras'
+            values: ['Diena', 'Savaitė', 'Mėnuo']
             size_hint_y: None
-            height: 50
-            font_size: 24
+            height: 40
+            on_text: root.set_filter(self.text)
 
         ScrollView:
             id: scroll_view
@@ -79,7 +81,7 @@
                 height: self.minimum_height
 
         Button:
-            text: "<- Grįžti į pagrindinį"
+            text: "Grįžti atgal"
             size_hint_y: None
             height: 40
-            on_press: root.go_back()
+            on_press: root.manager.current = 'main'

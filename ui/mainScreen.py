@@ -2,11 +2,13 @@ from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.button import Button
 from kivy.uix.screenmanager import Screen, ScreenManager
+from database.database import Database
 
 from ui.statisticsScreen import StatisticsScreen
 
 # Laikinas produktų sąrašas (vietoj DB)
-PRODUCTS = []
+#PRODUCTS = []
+db = Database()
 
 # Užkrauname UI failą
 Builder.load_file("UI.kv")
@@ -31,9 +33,12 @@ class MainScreen(Screen):
         product_list = self.ids.product_list
         product_list.clear_widgets()
 
-        for product in PRODUCTS:
+        # Gauname produktus iš DB
+        products = db.get_all_products()
+
+        for product in products:
             product_button = Button(
-                text=f"{product['name']} - {product['category']}",
+                text=f"{product['product_name']} - {product['category']}",
                 size_hint_y=None,
                 height=40
             )
@@ -52,7 +57,7 @@ class MainScreen(Screen):
 
         def save_product():
             if name_input.text and category_input.text:
-                PRODUCTS.append({"name": name_input.text, "category": category_input.text})
+                db.add_product(name_input.text, category_input.text)
                 self.update_product_list()
                 popup.dismiss()
 
@@ -83,7 +88,7 @@ class MainScreen(Screen):
             popup.dismiss()
 
         def delete_product():
-            PRODUCTS.remove(product)
+            #db.delete_product()
             self.update_product_list()
             popup.dismiss()
 
@@ -103,6 +108,7 @@ class MainScreen(Screen):
 
 class MyApp(App):
     def build(self):
+        self.db = db
         sm = ScreenManager()
         sm.add_widget(MainScreen(name="main"))
         sm.add_widget(StatisticsScreen(name="statistics"))
