@@ -1,3 +1,5 @@
+import datetime
+
 from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.button import Button
@@ -7,7 +9,7 @@ from database.database import Database
 from ui.statisticsScreen import StatisticsScreen
 
 # Laikinas produktų sąrašas (vietoj DB)
-#PRODUCTS = []
+PRODUCTS = []
 db = Database()
 
 # Užkrauname UI failą
@@ -33,10 +35,7 @@ class MainScreen(Screen):
         product_list = self.ids.product_list
         product_list.clear_widgets()
 
-        # Gauname produktus iš DB
-        products = db.get_all_products()
-
-        for product in products:
+        for product in PRODUCTS:
             product_button = Button(
                 text=f"{product['product_name']} - {product['category']}",
                 size_hint_y=None,
@@ -57,6 +56,10 @@ class MainScreen(Screen):
 
         def save_product():
             if name_input.text and category_input.text:
+                PRODUCTS.append({
+                    "product_name": name_input.text,
+                    "category": category_input.text
+                })
                 db.add_product(name_input.text, category_input.text)
                 self.update_product_list()
                 popup.dismiss()
@@ -115,4 +118,8 @@ class MyApp(App):
         return sm
 
 if __name__ == "__main__":
+    #db.add_product(
+    #    "7day",
+    #    "bakery",
+    #   datetime.datetime.strptime("2025-03-14 00:00:00", '%Y-%m-%d %H:%M:%S'))
     MyApp().run()

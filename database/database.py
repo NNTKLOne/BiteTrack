@@ -69,11 +69,11 @@ class Database:
         conn.close()
 
 
-    def add_product(self, product_name, category):
+    def add_product(self, product_name, category, created_at):
         conn = self.get_connection()
         cursor = conn.cursor()
-        cursor.execute('INSERT INTO Product (product_name, category) VALUES (?, ?)',
-                       (product_name, category))
+        cursor.execute('INSERT INTO Product (product_name, category, created_at) VALUES (?, ?, ?)',
+                       (product_name, category, created_at))
         conn.commit()
         conn.close()
 
@@ -98,6 +98,30 @@ class Database:
         conn = self.get_connection()
         cursor = conn.cursor()
         cursor.execute("SELECT * FROM Product WHERE DATE(created_at) = DATE('now')")
+        products = cursor.fetchall()
+        conn.close()
+        return [dict(p) for p in products]
+
+    def get_products_this_week(self):
+        conn = self.get_connection()
+        cursor = conn.cursor()
+        cursor.execute("""
+            SELECT * FROM Product
+            WHERE strftime('%W', created_at) = strftime('%W', 'now')
+            AND strftime('%Y', created_at) = strftime('%Y', 'now')
+        """)
+        products = cursor.fetchall()
+        conn.close()
+        return [dict(p) for p in products]
+
+    def get_products_this_month(self):
+        conn = self.get_connection()
+        cursor = conn.cursor()
+        cursor.execute("""
+            SELECT * FROM Product
+            WHERE strftime('%m', created_at) = strftime('%m', 'now')
+            AND strftime('%Y', created_at) = strftime('%Y', 'now')
+        """)
         products = cursor.fetchall()
         conn.close()
         return [dict(p) for p in products]
