@@ -62,10 +62,10 @@
         padding: 10
         spacing: 10
 
-        # ✅ Filtras (Dropdown)
+        #  Filtras (Dropdown)
         Spinner:
-            text: 'Filtras'
-            values: ['Diena', 'Savaitė', 'Mėnuo']
+            id: spinner
+            values: ['Visi', 'Diena', 'Savaitė', 'Mėnuo']
             size_hint_y: None
             height: 40
             on_text: root.set_filter(self.text)

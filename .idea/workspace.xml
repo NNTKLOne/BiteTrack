@@ -5,34 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6aea24bb-4b7a-4cfa-8795-cd12df36a44f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/25906170-f446-4e24-865e-56259c8f7c11.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/25906170-f446-4e24-865e-56259c8f7c11/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/26463149-7acc-4041-be4e-db8ea3add19a.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/26463149-7acc-4041-be4e-db8ea3add19a/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/27d6e39a-55fe-4b4c-bbf8-4fa8c663b204.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/27d6e39a-55fe-4b4c-bbf8-4fa8c663b204/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3a4f85ba-ec53-4dff-b30d-1ae38d24798b.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3a4f85ba-ec53-4dff-b30d-1ae38d24798b/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4cd9e25a-8e4a-497b-8d02-2a8f98fc9ca4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4cd9e25a-8e4a-497b-8d02-2a8f98fc9ca4/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6de772a4-3193-4e97-b3a4-5a5f4be3abd1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6de772a4-3193-4e97-b3a4-5a5f4be3abd1/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/7f178d8f-929c-4151-8a24-a1227a6e62d5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/7f178d8f-929c-4151-8a24-a1227a6e62d5/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a65d2f25-c3ff-490f-9a0a-38736e0abe3c.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a65d2f25-c3ff-490f-9a0a-38736e0abe3c/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/be6171b9-ce25-487e-a5d4-cd36e742ecc4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/be6171b9-ce25-487e-a5d4-cd36e742ecc4/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d6564550-d5a9-491b-9b6f-6ead966f5542.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d6564550-d5a9-491b-9b6f-6ead966f5542/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/database.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/UI.kv" beforeDir="false" afterPath="$PROJECT_DIR$/ui/UI.kv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/data.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/mainScreen.py" beforeDir="false" afterPath="$PROJECT_DIR$/ui/mainScreen.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/statisticsScreen.py" beforeDir="false" afterPath="$PROJECT_DIR$/ui/statisticsScreen.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,7 +124,7 @@
       <workItem from="1742254435812" duration="8000" />
       <workItem from="1742278391556" duration="1711000" />
       <workItem from="1742475189087" duration="5939000" />
-      <workItem from="1742481162713" duration="1085000" />
+      <workItem from="1742481162713" duration="2061000" />
     </task>
     <servers />
   </component>
@@ -192,6 +167,6 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/BiteTrack$main.coverage" NAME="mainPage Coverage Results" MODIFIED="1742398068325" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/BiteTrack$database.coverage" NAME="database Coverage Results" MODIFIED="1742405849942" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/database" />
-    <SUITE FILE_PATH="coverage/BiteTrack$mainScreen.coverage" NAME="mainScreen Coverage Results" MODIFIED="1742482053247" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/BiteTrack$mainScreen.coverage" NAME="mainScreen Coverage Results" MODIFIED="1742483098306" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
