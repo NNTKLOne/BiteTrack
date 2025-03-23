@@ -10,7 +10,8 @@ BASE_URL = "https://api.groq.com/openai/v1/chat/completions"
 class LlamaApp(BoxLayout):
     def __init__(self, **kwargs):
         super().__init__(orientation="vertical", **kwargs)
-    def call_llama_api(query):
+
+    def call_llama_api(self, query):
         try:
             # Promptas atrinkti tik maisto patiekalams
             prompt = (
@@ -48,6 +49,12 @@ class LlamaApp(BoxLayout):
             # Kitos klaidos
             return {"error": f"Klaida, jungiantis prie API: {str(e)}"}
 
+    def process_response(self, response):
+        if "error" in response:
+            return response["error"]
+        else:
+            result = response.get("text", "Negauta atsakymo")
+            return f"Aptiktas patiekalas:\n{result}"
 
 class LlamaAppMain(App):
     def build(self):
