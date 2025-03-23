@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6aea24bb-4b7a-4cfa-8795-cd12df36a44f" name="Changes" comment="Sukurti funkciją užklausai į LLM : Backlog item OPS-20">
+    <list default="true" id="6aea24bb-4b7a-4cfa-8795-cd12df36a44f" name="Changes" comment="Sukurti funkciją apdoroti atsakymą iš LLM : Backlog item OPS-30">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LLM.py" beforeDir="false" afterPath="$PROJECT_DIR$/LLM.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -91,7 +92,7 @@
       <workItem from="1742241792703" duration="2309000" />
       <workItem from="1742248832664" duration="1704000" />
       <workItem from="1742264308573" duration="779000" />
-      <workItem from="1742755364850" duration="1959000" />
+      <workItem from="1742755364850" duration="2945000" />
     </task>
     <task id="LOCAL-00001" summary="Projekto pirmasis commit">
       <option name="closed" value="true" />
@@ -109,7 +110,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742757130856</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Sukurti funkciją apdoroti atsakymą iš LLM : Backlog item OPS-30">
+      <option name="closed" value="true" />
+      <created>1742757488032</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1742757488032</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -129,9 +138,10 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Projekto pirmasis commit" />
     <MESSAGE value="Sukurti funkciją užklausai į LLM : Backlog item OPS-20" />
-    <option name="LAST_COMMIT_MESSAGE" value="Sukurti funkciją užklausai į LLM : Backlog item OPS-20" />
+    <MESSAGE value="Sukurti funkciją apdoroti atsakymą iš LLM : Backlog item OPS-30" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sukurti funkciją apdoroti atsakymą iš LLM : Backlog item OPS-30" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/BiteTrack$LLM.coverage" NAME="LLM Coverage Results" MODIFIED="1742757340464" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/BiteTrack$LLM.coverage" NAME="LLM Coverage Results" MODIFIED="1742758330918" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
