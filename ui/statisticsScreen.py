@@ -33,7 +33,7 @@ class StatisticsScreen(Screen):
         #  Pridedame produktus į GUI
         for product in products:
             product_button = Button(
-                text=f"{product['product_name']} - {product['category']}",
+                text=f"{product['product_name']}",
                 size_hint_y=None,
                 height=40
             )

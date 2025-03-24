@@ -43,7 +43,6 @@ class Database:
         CREATE TABLE IF NOT EXISTS Product (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             product_name TEXT NOT NULL,
-            category TEXT NOT NULL,
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         )
         ''')
@@ -69,11 +68,11 @@ class Database:
     #     conn.close()
 
 
-    def add_product(self, product_name, category):
+    def add_product(self, product_name):
         conn = self.get_connection()
         cursor = conn.cursor()
-        cursor.execute('INSERT INTO Product (product_name, category) VALUES (?, ?)',
-                       (product_name, category))
+        cursor.execute('INSERT INTO Product (product_name) VALUES (?)',
+                       (product_name,))
         conn.commit()
         conn.close()
 

@@ -44,8 +44,8 @@
             spacing: 10
 
             Button:
-                text: "Pridėti produktą"
-                on_press: root.add_product()
+                text: "Pridėti produktus"
+                on_press: root.save_to_database(root.ids.transcription.text)
 
         BoxLayout:
             orientation: 'horizontal'

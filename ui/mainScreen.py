@@ -1,19 +1,18 @@
-import datetime
-
 from kivy.app import App
 from kivy.lang import Builder
-from kivy.uix.button import Button
 from kivy.uix.screenmanager import Screen, ScreenManager
-from database.database import Database
-
+from kivy.uix.button import Button
 from ui.statisticsScreen import StatisticsScreen
+from database.database import Database
+from LLM import send_query  # Importing function from LLM.py
 
-# Laikinas produktų sąrašas (vietoj DB)
+# Laikinas produktų sąrašas (produktų, kurie gali būti išsaugoti į DB)
 PRODUCTS = []
 db = Database()
 
 # Užkrauname UI failą
 Builder.load_file("UI.kv")
+
 
 class MainScreen(Screen):
 
@@ -25,89 +24,58 @@ class MainScreen(Screen):
         self.ids.transcription.text = ""
 
     def send_to_llm(self):
+        query = self.ids.transcription.text
         self.clear_text()
-        # Siuntimas į LLM būtų čia
+        # Send query to LLM to get products
+        result = send_query(query)
+
+        # Display results in the UI
+        self.display_results(result)
+
+    def save_to_database(self, result):
+        """Save recognized products into the database"""
+        # Assuming result is a string with product names listed in a specific format
+        # Example result: "- Patiekalas: Kebabas su česnakiniu padažu\n- Patiekalas: Cepelinai su kiauliena"
+
+        lines = result.split("\n")
+        for line in lines:
+            if line.strip().startswith("- Patiekalas:"):
+                product_name = line.split(":")[1].strip()
+
+                # Add only the product_name to PRODUCTS list
+                PRODUCTS.append({
+                    "product_name": product_name,
+                })
+
+                print(f"Product added: {product_name}")
+                # Save the product to the database
+                db.add_product(product_name)
+
+    def display_results(self, result):
+        """Display recognized products below the 'Atpažinti produktai' section."""
+        self.ids.transcription.text = result
+        self.update_product_list(result)
 
     def load_statistics(self):
         self.manager.current = "statistics"
 
-    def update_product_list(self):
+    def update_product_list(self, result):
         product_list = self.ids.product_list
         product_list.clear_widgets()
 
-        for product in PRODUCTS:
-            product_button = Button(
-                text=f"{product['product_name']} - {product['category']}",
-                size_hint_y=None,
-                height=40
-            )
-            product_button.bind(on_release=lambda btn, p=product: self.edit_product(p))
-            product_list.add_widget(product_button)
+        lines = result.split("\n")
+        for line in lines:
+            if line.strip().startswith("- Patiekalas:"):
+                product_name = line.split(":")[1].strip()
 
-    def add_product(self):
-        from kivy.uix.boxlayout import BoxLayout
-        from kivy.uix.textinput import TextInput
-        from kivy.uix.button import Button
-        from kivy.uix.popup import Popup
+                # Add a button for each recognized product
+                product_button = Button(
+                    text=product_name,
+                    size_hint_y=None,
+                    height=40
+                )
+                product_list.add_widget(product_button)
 
-        content = BoxLayout(orientation="vertical", spacing=10)
-        name_input = TextInput(hint_text="Produkto pavadinimas")
-        category_input = TextInput(hint_text="Kategorija")
-
-        def save_product():
-            if name_input.text and category_input.text:
-                PRODUCTS.append({
-                    "product_name": name_input.text,
-                    "category": category_input.text
-                })
-                db.add_product(name_input.text, category_input.text)
-                self.update_product_list()
-                popup.dismiss()
-
-        save_button = Button(text="Išsaugoti", size_hint_y=None, height=40)
-        save_button.bind(on_release=lambda x: save_product())
-
-        content.add_widget(name_input)
-        content.add_widget(category_input)
-        content.add_widget(save_button)
-
-        popup = Popup(title="Pridėti naują produktą", content=content, size_hint=(0.8, 0.5))
-        popup.open()
-
-    def edit_product(self, product):
-        from kivy.uix.boxlayout import BoxLayout
-        from kivy.uix.textinput import TextInput
-        from kivy.uix.button import Button
-        from kivy.uix.popup import Popup
-
-        content = BoxLayout(orientation="vertical", spacing=10)
-        name_input = TextInput(text=product['name'])
-        category_input = TextInput(text=product['category'])
-
-        def save_changes():
-            product['name'] = name_input.text
-            product['category'] = category_input.text
-            self.update_product_list()
-            popup.dismiss()
-
-        def delete_product():
-            #db.delete_product()
-            self.update_product_list()
-            popup.dismiss()
-
-        save_button = Button(text="Atnaujinti", size_hint_y=None, height=40)
-        save_button.bind(on_release=lambda x: save_changes())
-
-        delete_button = Button(text="Ištrinti", size_hint_y=None, height=40)
-        delete_button.bind(on_release=lambda x: delete_product())
-
-        content.add_widget(name_input)
-        content.add_widget(category_input)
-        content.add_widget(save_button)
-        content.add_widget(delete_button)
-
-        popup = Popup(title="Redaguoti produktą", content=content, size_hint=(0.8, 0.5))
-        popup.open()
 
 class MyApp(App):
     def build(self):
@@ -117,9 +85,6 @@ class MyApp(App):
         sm.add_widget(StatisticsScreen(name="statistics"))
         return sm
 
+
 if __name__ == "__main__":
-    #db.add_product(
-    #    "7day",
-    #    "bakery",
-    #   datetime.datetime.strptime("2025-03-14 00:00:00", '%Y-%m-%d %H:%M:%S'))
     MyApp().run()
