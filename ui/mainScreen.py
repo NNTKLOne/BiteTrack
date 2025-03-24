@@ -205,11 +205,13 @@ class MainScreen(Screen):
     def confirm_delete(self, product_id):
         # Sukuriame patvirtinimo langą
         popup_layout = BoxLayout(orientation='vertical', padding=10, spacing=10)
-        label = Label(text=f"Ar tikrai norite ištrinti {product_id}?")
+        product = next((p for p in PRODUCTS if p["id"] == product_id), None)
+        product = product["product_name"]
+        label = Label(text=f"Ar tikrai norite ištrinti {product}?")
         button_layout = BoxLayout(spacing=10)
 
         # Mygtukai "Taip" ir "Atšaukti"
-        confirm_button = Button(text="Taip", on_press=lambda btn: self.delete_product(product_id, popup))
+        confirm_button = Button(text="Taip", on_press=lambda btn: self.delete_product(product_id, product, popup))
         cancel_button = Button(text="Atšaukti", on_press=lambda btn: popup.dismiss())
 
         button_layout.add_widget(confirm_button)
@@ -221,7 +223,7 @@ class MainScreen(Screen):
         popup = Popup(title="Patvirtinimas", content=popup_layout, size_hint=(0.5, 0.3))
         popup.open()
 
-    def delete_product(self, product_id, popup):
+    def delete_product(self, product_id, product, popup):
         # Uždaryti patvirtinimo langą
         popup.dismiss()
         global PRODUCTS
@@ -232,7 +234,7 @@ class MainScreen(Screen):
 
         # Sėkmingo ištrynimo popup su "OK" mygtuku
         success_popup_layout = BoxLayout(orientation='vertical', padding=10, spacing=10)
-        success_label = Label(text=f"Įrašas '{product_id}' sėkmingai ištrintas.")
+        success_label = Label(text=f"Įrašas '{product}' sėkmingai ištrintas.")
         ok_button = Button(text="OK", on_press=lambda btn: success_popup.dismiss())
 
         success_popup_layout.add_widget(success_label)
