@@ -67,12 +67,16 @@ class Database:
     #     conn.commit()
     #     conn.close()
 
-
-    def add_product(self, product_name):
+    def add_product(self, product_name, created_at=None):
         conn = self.get_connection()
         cursor = conn.cursor()
-        cursor.execute('INSERT INTO Product (product_name) VALUES (?)',
-                       (product_name,))
+
+        if created_at is None:
+            cursor.execute('INSERT INTO Product (product_name) VALUES (?)', (product_name,))
+        else:
+            cursor.execute('INSERT INTO Product (product_name, created_at) VALUES (?, ?)',
+                           (product_name, created_at))
+
         conn.commit()
         conn.close()
 

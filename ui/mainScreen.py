@@ -103,6 +103,7 @@ class MainScreen(Screen):
 
         #OPS-12
     def update_from_text(self):
+        #db.add_product("Kebabas su mėsa", "2025-01-12 08:30:00") # - jei noretume manualiai pridet kazkoki produkta, kad patikrint filtravima! 'FILTRAVIMAS'
         """Update the product list based on the TextInput content."""
         product_list = self.ids.product_list
         product_list.clear_widgets()
