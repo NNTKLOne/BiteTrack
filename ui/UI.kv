@@ -1,0 +1,88 @@
+
+
+<MainScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 10
+        spacing: 10
+
+        Button:
+            text: "Pradėti įrašymą"
+            size_hint_y: 0.1
+            on_press: root.start_recording()
+
+        TextInput:
+            id: transcription
+            hint_text: "Čia bus rodomas transkribuotas tekstas"
+            size_hint_y: 0.2
+            multiline: True
+
+        BoxLayout:
+            size_hint_y: 0.1
+            spacing: 10
+
+            Button:
+                text: "Atpažinti produktus"
+                on_press: root.send_to_llm()
+
+        Label:
+            text: "Atpažinti produktai"
+            size_hint_y: 0.05
+
+        ScrollView:
+            id: scroll_view
+            size_hint_y: 0.5
+
+            StackLayout:
+                id: product_list
+                size_hint_y: None
+                height: self.minimum_height
+                orientation: 'lr-tb'  # iš kairės į dešinę, iš viršaus į apačią
+
+        BoxLayout:
+            size_hint_y: 0.1
+            spacing: 10
+
+            Button:
+                text: "Pridėti produktą"
+                on_press: root.add_product()
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: 0.1
+            spacing: 10
+
+            Button:
+                text: "Statistika ->"
+                on_press: root.load_statistics()
+
+<StatisticsScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 10
+        spacing: 10
+
+        #  Filtras (Dropdown)
+        Spinner:
+            id: spinner
+            values: ['Visi', 'Diena', 'Savaitė', 'Mėnuo']
+            size_hint_y: None
+            height: 40
+            on_text: root.set_filter(self.text)
+
+        ScrollView:
+            id: scroll_view
+            size_hint_y: 0.8
+
+            GridLayout:
+                id: stats_list
+                cols: 1
+                size_hint_y: None
+                height: self.minimum_height
+
+        Button:
+            text: "Grįžti atgal"
+            size_hint_y: None
+            height: 40
+            on_press: root.manager.current = 'main'
+
