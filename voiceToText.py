@@ -7,6 +7,7 @@ from kivy.clock import Clock
 
 
 class VoiceToText:
+    MAX_RECORDING_DURATION = 30 # sekundes
     def __init__(self):
         self.is_recording = False
         self.recording_thread = None
@@ -29,7 +30,7 @@ class VoiceToText:
             channels = device_info['max_input_channels']
 
             if channels < 1:
-                raise ValueError("Microphone not found or channels unavailable")
+                raise ValueError("Mikrofono klaida")
 
             filename = self.audio_file_path
 
@@ -40,7 +41,7 @@ class VoiceToText:
 
                 def audio_callback(indata, frames, time_info, status):
                     if status:
-                        print(f"Recording status: {status}")
+                        print(f"Įrašinėjimo statusas: {status}")
 
                     # Normalize and amplify audio data
                     gain = 10.0  # loudness
@@ -53,21 +54,26 @@ class VoiceToText:
                         raise sd.CallbackStop()
 
                 with sd.InputStream(samplerate=sample_rate, channels=channels, dtype='int16', callback=audio_callback):
-                    print("🔴 Recording started...")
+                    print("🔴 Įrašymas pradedamas...")
+                    duration = 0
                     while self.is_recording:
                         sd.sleep(200)
+                        duration +=(0.2)
+                        if duration > self.MAX_RECORDING_DURATION:
+                            self.is_recording = False
+                            raise ValueError("Įrašymas per ilgas (ilgiausias gali būti 30s)")
 
-            # Check if the file is empty
             if self._is_audio_file_empty(filename):
-                raise ValueError("Audio file is empty. Recording failed!")
+                raise ValueError("Audio failas tuščias. Įrašymo klaida!")
 
-            # When recording ends, start transcription
+            recording_length = self._get_audio_length(filename)
+            if recording_length > self.MAX_RECORDING_DURATION:
+                raise ValueError(f"Įrašymas per ilgas: ({recording_length:.2f} sekundės). Max kiek galima {self.MAX_RECORDING_DURATION} sekundžių.")
             result = self._run_transcription()
-            # Use Clock.schedule_once to update UI in main thread
             Clock.schedule_once(lambda dt: callback(result))
 
         except Exception as e:
-            print(f"⚠️ Error during recording: {e}")
+            print(f"⚠️ Klaida įrašymo metu: {e}")
             Clock.schedule_once(lambda dt: callback(f"Klaida įrašant: {e}"))
 
     def _is_audio_file_empty(self, filename):
@@ -94,7 +100,7 @@ class VoiceToText:
                 elif isinstance(transcription, dict):
                     return transcription.get("text", "")
                 else:
-                    raise TypeError(f"Unexpected transcription response type: {type(transcription)}")
+                    raise TypeError(f"Netikėta klaida: {type(transcription)}")
 
         except Exception as e:
             return f"Klaida transkribuojant: {e}"
