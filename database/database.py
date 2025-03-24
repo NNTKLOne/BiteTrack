@@ -1,6 +1,6 @@
 import sqlite3
 
-DB_FILE = "data.db"
+DB_FILE = "../ui/data.db"
 
 class Database:
 
