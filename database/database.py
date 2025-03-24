@@ -1,6 +1,6 @@
 import sqlite3
 
-DB_FILE = "data.db"
+DB_FILE = "../database/data.db"
 
 class Database:
 
@@ -67,15 +67,12 @@ class Database:
     #     conn.commit()
     #     conn.close()
 
-
     def add_product(self, product_name):
         conn = self.get_connection()
         cursor = conn.cursor()
-        cursor.execute('INSERT INTO Product (product_name) VALUES (?)',
-                       (product_name,))
+        cursor.execute('INSERT INTO Product (product_name) VALUES (?)', (product_name,))
         conn.commit()
         conn.close()
-
 
     def get_all_products(self):
         conn = self.get_connection()

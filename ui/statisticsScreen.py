@@ -29,6 +29,13 @@ class StatisticsScreen(Screen):
             products = db.get_products_this_week()
         elif filter_type == 'Mėnuo':
             products = db.get_products_this_month()
+        else:
+            products = []
+
+            # Jei nėra duomenų, rodome pranešimą
+        if not products:
+            stats_list.add_widget(Label(text="Duomenų nerasta", size_hint_y=None, height=40))
+            return
 
         #  Pridedame produktus į GUI
         for product in products:
