@@ -61,14 +61,21 @@ class LlamaApp(BoxLayout):
         try:
             # Promptas atrinkti tik maisto patiekalam
             prompt = (
-                f"Išrink tik maisto produktus ir sudaryk patiekalus iš toliau pateikto teksto aprašymo. "
-                f"Sarašykite juos atskirai nuorodų formatu:\n\n"
-                f"{query}\n\n"
-                f"Formatuokite atsakymą kaip:\n"
-                f"- Patiekalas: [name]"
-                f"Pavyzdys: siandien vakare valgiau kebaba su cesnakiniu padazu. Ryte, atsikeles valgiau cepelinus su kiauliena"
-                f"Atsakymas turėtų būti: Patiekalas: Kebabas su česnakiniu padažu, Patiekalas: Cepelinai su kiauliena"
-                f"Patvarkyk rašybos klaidas, žodžių galūnes"
+                "Pavyzdys:\n"
+                "---EXAMPLE---\n"
+                "Šiandien vakare valgiau kebabą su česnakiniu padažu. Ryte, atsikėlęs valgiau cepelinus su kiauliena.\n"
+                "Atsakymas turėtų būti:\n"
+                "- Patiekalas: Kebabas su česnakiniu padažu\n"
+                "- Patiekalas: Cepelinai su kiauliena\n"
+                "---END EXAMPLE---\n\n"
+                "Patvarkyk rašybos klaidas, žodžių galūnes.\n"
+                "Išrink tik maisto produktus ir sudaryk patiekalus iš toliau pateikto teksto aprašymo, kuris pateikiamas lietuvių kalba.\n"
+                "Surašykite juos atskirai nuorodų formatu:\n\n"
+                "---INPUT---\n"
+                f"{query}\n"
+                "---END INPUT---\n\n"
+                "Formatuokite atsakymą kaip:\n"
+                "- Patiekalas: [name]"
             )
 
             headers = {
@@ -80,7 +87,7 @@ class LlamaApp(BoxLayout):
                 "model": "llama-3.3-70b-versatile",
                 "messages": [{"role": "user", "content": prompt}],
                 "temperature": 0.7,
-                "max_tokens": 150,
+                "max_tokens": 300,
                 "top_p": 1
             }
 
