@@ -129,10 +129,11 @@ class MainScreen(Screen):
     def edit_product(self, product_id):
         # Sukuriame pop-up su galimybe redaguoti produkto pavadinimą
         popup_layout = BoxLayout(orientation='vertical', padding=10, spacing=10)
+        product = next((p for p in PRODUCTS if p["id"] == product_id), None)
 
         # Sukuriame teksto lauką su esamu produkto pavadinimu
         self.product_input = TextInput(
-            text=PRODUCTS[product_id]["product_name"],
+            text=product["product_name"],
             size_hint_y=None,
             height=40
         )
@@ -157,25 +158,48 @@ class MainScreen(Screen):
         popup_layout.add_widget(button_layout)
 
         popup = Popup(
-            title=f"Redaguoti produktą: {PRODUCTS[product_id]['product_name']}",
+            title=f"Redaguoti produktą",
             content=popup_layout,
             size_hint=(0.5, 0.4)
         )
         popup.open()
 
-    def save_edited_product(self, old_product_name, popup):
-        PRODUCTS[old_product_name]["product_name"] = self.product_input.text.strip()
+    def save_edited_product(self, product_id, popup):
         new_product_name = self.product_input.text.strip()
 
         if new_product_name:
-            popup.dismiss()
-            #self.update_product_list("")
+            # Atnaujinti produkto pavadinimą sąraše
+            for product in PRODUCTS:
+                if product["id"] == product_id:
+                    product["product_name"] = new_product_name
+                    break  # Baigiam ciklą, kai randam reikiamą produktą
 
+            # Uždaryti redagavimo langą
+            popup.dismiss()
+
+            # Atnaujinti sąrašą ekrane
+            self.update_product_list()
+
+            # Sukuriame pranešimo lango turinį
+            success_layout = BoxLayout(orientation='vertical', padding=10, spacing=10)
+            success_label = Label(text=f"Produkto pavadinimas pakeistas į '{new_product_name}'")
+            ok_button = Button(text="OK", size_hint=(1, None), height=40)
+
+            # Sukuriame Popup langą
             success_popup = Popup(
                 title="Sėkminga operacija",
-                content=Label(text=f"Produkto pavadinimas sėkmingai pakeistas į '{new_product_name}'."),
+                content=success_layout,
                 size_hint=(0.5, 0.3)
             )
+
+            # Priskiriame mygtukui veiksmą uždaryti langą
+            ok_button.bind(on_press=lambda btn: success_popup.dismiss())
+
+            # Pridedame elementus į langą
+            success_layout.add_widget(success_label)
+            success_layout.add_widget(ok_button)
+
+            # Atidarome langą
             success_popup.open()
 
     def confirm_delete(self, product_id):
