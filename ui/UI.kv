@@ -5,15 +5,6 @@
         orientation: 'vertical'
         padding: 10
         spacing: 10
-
-
-        Spinner:
-            text: 'English'
-            values: ['English', 'Lithuanian']
-            size_hint_y: 0.1
-            on_text: root.set_language(self.text)
-
-
         # OPS-22
         Button:
             text: "Pradėti įrašymą"
@@ -53,7 +44,7 @@
             spacing: 10
 
             Button:
-                text: "Pridėti produktus"
+                text: "Išsaugoti"
                 on_press: root.save_to_database(root.ids.transcription.text)
 
         BoxLayout:

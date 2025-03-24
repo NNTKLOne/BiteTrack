@@ -1,5 +1,8 @@
 from kivy.app import App
 from kivy.lang import Builder
+from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.label import Label
+from kivy.uix.popup import Popup
 from kivy.uix.screenmanager import Screen, ScreenManager
 from kivy.uix.button import Button
 from ui.statisticsScreen import StatisticsScreen
@@ -99,7 +102,62 @@ class MainScreen(Screen):
                     size_hint_y=None,
                     height=40
                 )
-                product_list.add_widget(product_button)
+                delete_button = Button(
+                    text="Pašalinti",
+                    size_hint_x=None,
+                    width=100,  # Priklauso nuo to, kaip norite, kad jis atrodytų
+                    height=40,
+                    on_press=lambda btn, p_name=product_name: self.confirm_delete(p_name)
+                )
+
+                # Įdėjome abu mygtukus į BoxLayout
+                product_layout = BoxLayout(orientation='horizontal', size_hint_y=None, height=40)
+                product_layout.add_widget(product_button)
+                product_layout.add_widget(delete_button)
+
+                # Pridedame šį BoxLayout į sąrašą
+                product_list.add_widget(product_layout)
+
+    def confirm_delete(self, product_name):
+        # Sukuriame patvirtinimo langą
+        popup_layout = BoxLayout(orientation='vertical', padding=10, spacing=10)
+        label = Label(text=f"Ar tikrai norite ištrinti {product_name}?")
+        button_layout = BoxLayout(spacing=10)
+
+        # Mygtukai "Taip" ir "Atšaukti"
+        confirm_button = Button(text="Taip", on_press=lambda btn: self.delete_product(product_name, popup))
+        cancel_button = Button(text="Atšaukti", on_press=lambda btn: popup.dismiss())
+
+        button_layout.add_widget(confirm_button)
+        button_layout.add_widget(cancel_button)
+
+        popup_layout.add_widget(label)
+        popup_layout.add_widget(button_layout)
+
+        popup = Popup(title="Patvirtinimas", content=popup_layout, size_hint=(0.5, 0.3))
+        popup.open()
+
+    def delete_product(self, product_name, popup):
+        # Uždaryti patvirtinimo langą
+        popup.dismiss()
+
+        # Atnaujinti produktų sąrašą (jei reikia)
+        self.update_product_list("")
+
+        # Sėkmingo ištrynimo popup su "OK" mygtuku
+        success_popup_layout = BoxLayout(orientation='vertical', padding=10, spacing=10)
+        success_label = Label(text=f"Įrašas '{product_name}' sėkmingai ištrintas.")
+        ok_button = Button(text="OK", on_press=lambda btn: success_popup.dismiss())
+
+        success_popup_layout.add_widget(success_label)
+        success_popup_layout.add_widget(ok_button)
+
+        success_popup = Popup(
+            title="Sėkminga operacija",
+            content=success_popup_layout,
+            size_hint=(0.5, 0.3)
+        )
+        success_popup.open()
 
         #OPS-12
     def update_from_text(self):

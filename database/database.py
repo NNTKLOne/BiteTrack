@@ -17,28 +17,6 @@ class Database:
         conn = self.get_connection()
         cursor = conn.cursor()
 
-        # cursor.execute('''
-        # CREATE TABLE IF NOT EXISTS Recording (
-        #     id INTEGER PRIMARY KEY AUTOINCREMENT,
-        #     file_path TEXT NOT NULL,
-        #     duration REAL NOT NULL,
-        #     file_size INTEGER NOT NULL,
-        #     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-        # )
-        # ''')
-        #
-        # cursor.execute('''
-        # CREATE TABLE IF NOT EXISTS Transcription (
-        #     id INTEGER PRIMARY KEY AUTOINCREMENT,
-        #     recording_id INTEGER NOT NULL,
-        #     text TEXT NOT NULL,
-        #     confidence REAL NOT NULL,
-        #     language_detected TEXT NOT NULL,
-        #     processed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        #     FOREIGN KEY(recording_id) REFERENCES Recording(id) ON DELETE CASCADE
-        # )
-        # ''')
-
         cursor.execute('''
         CREATE TABLE IF NOT EXISTS Product (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -49,23 +27,6 @@ class Database:
 
         conn.commit()
         conn.close()
-
-    # def add_recording(self, file_path, duration, size):
-    #     conn = self.get_connection()
-    #     cursor = conn.cursor()
-    #     cursor.execute('INSERT INTO Recording (file_path, duration, file_size) VALUES (?, ?, ?)',
-    #                    (file_path, duration, size))
-    #     conn.commit()
-    #     conn.close()
-    #
-    # def add_transcription(self, recording_id, text, confidence, language):
-    #     conn = self.get_connection()
-    #     cursor = conn.cursor()
-    #     cursor.execute(
-    #         'INSERT INTO Transcription (recording_id, text, confidence, language_detected) VALUES (?, ?, ?, ?)',
-    #         (recording_id, text, confidence, language))
-    #     conn.commit()
-    #     conn.close()
 
     def add_product(self, product_name, created_at=None):
         conn = self.get_connection()
