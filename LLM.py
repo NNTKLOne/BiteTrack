@@ -61,7 +61,8 @@ def process_response(response):
     result = response.get("text", "Negauta atsakymo")
 
     # tikrinam ar tuscias ats ir nera maisto patiekalu
-    if not result.strip() or "Patiekalas:" not in result:
+    if not result.strip() or result.strip() == "None" or "Patiekalas:" not in result:
+        print("Klaida: transkribuotas tekstas tuščias arba neteisingas.")
         return "Maisto produktų nerasta."
 
     # Process and format the dishes
