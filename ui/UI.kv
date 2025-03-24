@@ -29,10 +29,10 @@
         BoxLayout:
             size_hint_y: 0.1
             spacing: 10
-
+            # OPS
             Button:
-                text: "Atpažinti produktus"
-                on_press: root.send_to_llm()
+                text: "Įrašyti pakeitimus"
+                on_press: root.update_from_text()
 
         Label:
             text: "Atpažinti produktai"

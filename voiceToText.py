@@ -98,7 +98,7 @@ class VoiceToText:
 
         except Exception as e:
             return f"Klaida transkribuojant: {e}"
-
+        # OPS-27 + OPS-23 - Augustas Česnavičius
     def set_language(self, language):
         language_map = {
             'English': 'en',

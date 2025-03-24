@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6aea24bb-4b7a-4cfa-8795-cd12df36a44f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/452f516f-7c73-4425-bd37-b69c65a202a4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/452f516f-7c73-4425-bd37-b69c65a202a4.xml" afterDir="false" />
+    <list default="true" id="6aea24bb-4b7a-4cfa-8795-cd12df36a44f" name="Changes" comment="Pridėta integracija su VTT prie UI">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/UI.kv" beforeDir="false" afterPath="$PROJECT_DIR$/ui/UI.kv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/mainScreen.py" beforeDir="false" afterPath="$PROJECT_DIR$/ui/mainScreen.py" afterDir="false" />
@@ -164,10 +163,23 @@
       <updated>1742237374993</updated>
       <workItem from="1742237378534" duration="5000" />
     </task>
+    <task id="LOCAL-00001" summary="Pridėta integracija su VTT prie UI">
+      <option name="closed" value="true" />
+      <created>1742845608896</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1742845608896</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Pridėta integracija su VTT prie UI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Pridėta integracija su VTT prie UI" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -187,6 +199,6 @@
     <SUITE FILE_PATH="coverage/BiteTrack$LLM.coverage" NAME="LLM Coverage Results" MODIFIED="1742839076835" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/BiteTrack$voiceToText.coverage" NAME="voiceToText Coverage Results" MODIFIED="1742843336418" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/BiteTrack$database.coverage" NAME="database Coverage Results" MODIFIED="1742405849942" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/database" />
-    <SUITE FILE_PATH="coverage/BiteTrack$mainScreen__1_.coverage" NAME="mainScreen (1) Coverage Results" MODIFIED="1742845303708" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ui" />
+    <SUITE FILE_PATH="coverage/BiteTrack$mainScreen__1_.coverage" NAME="mainScreen (1) Coverage Results" MODIFIED="1742845866679" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ui" />
   </component>
 </project>

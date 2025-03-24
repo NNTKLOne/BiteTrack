@@ -101,6 +101,31 @@ class MainScreen(Screen):
                 )
                 product_list.add_widget(product_button)
 
+        #OPS-12
+    def update_from_text(self):
+        """Update the product list based on the TextInput content."""
+        product_list = self.ids.product_list
+        product_list.clear_widgets()
+
+        text = self.ids.transcription.text.strip()
+        if not text:
+            return
+
+        lines = text.split("\n")
+
+        for line in lines:
+            if line.strip().startswith("- Patiekalas:"):
+                product_name = line.split(":", 1)[1].strip()
+
+                # Add a button for each recognized product
+                product_button = Button(
+                    text=product_name,
+                    size_hint_y=None,
+                    height=40,
+                    on_press=lambda x, name=product_name: self.remove_product(name)
+                )
+                product_list.add_widget(product_button)
+
 
 class MyApp(App):
     def build(self):
