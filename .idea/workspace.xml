@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6aea24bb-4b7a-4cfa-8795-cd12df36a44f" name="Changes" comment="Patvarkytas duomenų atrinkimas iš užklausos.">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1619cd29-8603-43b7-81ea-8064ad3efb41.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1619cd29-8603-43b7-81ea-8064ad3efb41/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" />
+    <list default="true" id="6aea24bb-4b7a-4cfa-8795-cd12df36a44f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/452f516f-7c73-4425-bd37-b69c65a202a4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/452f516f-7c73-4425-bd37-b69c65a202a4.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/54cb9004-fed8-4f0b-82b0-b09aee6f74bc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/54cb9004-fed8-4f0b-82b0-b09aee6f74bc/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/UI.kv" beforeDir="false" afterPath="$PROJECT_DIR$/ui/UI.kv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/mainScreen.py" beforeDir="false" afterPath="$PROJECT_DIR$/ui/mainScreen.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -21,7 +18,6 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Unit Test" />
         <option value="Python Script" />
       </list>
     </option>
@@ -29,24 +25,11 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feature-LLM" />
+        <entry key="$PROJECT_DIR$" value="feature-voiceToText" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;dlavcel&quot;
-  }
-}</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/NNTKLOne/BiteTrack.git&quot;,
-    &quot;accountId&quot;: &quot;6c2740a8-138d-4653-87db-38b0a5845af2&quot;
-  }
-}</component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 7
@@ -59,37 +42,15 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Python tests.Python tests in test_database.py.executor": "Run",
-    "Python tests.Python tests in test_llama.py.executor": "Run",
-    "Python.LLM.executor": "Run",
-    "Python.database.executor": "Run",
-    "Python.main.executor": "Run",
-    "Python.mainPage.executor": "Run",
-    "Python.mainScreen.executor": "Run",
-    "Python.startUI.executor": "Run",
+    "Python.mainScreen (1).executor": "Run",
+    "Python.voiceToText.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "develop",
-    "last_opened_file_path": "D:/Downloads/BiteTrack-feature-vartotojoSasaja",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
-  },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "sqlite"
-    ]
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\User\PycharmProjects\BiteTrack\ui" />
-      <recent name="C:\Users\User\PycharmProjects\BiteTrack\database" />
-    </key>
-  </component>
   <component name="RunManager" selected="Python.mainScreen (1)">
     <configuration name="LLM" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="BiteTrack" />
@@ -137,7 +98,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="mainScreen" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+    <configuration name="voiceToText" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="BiteTrack" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -151,7 +112,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="C:\Users\User\PycharmProjects\BiteTrack\ui\mainScreen.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/voiceToText.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -179,8 +140,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.mainScreen (1)" />
+        <item itemvalue="Python.voiceToText" />
         <item itemvalue="Python tests.Python tests in test_llama.py" />
-        <item itemvalue="Python.LLM" />
         <item itemvalue="Python.LLM" />
       </list>
     </recent_temporary>
@@ -202,74 +163,30 @@
       <option name="presentableId" value="Default" />
       <updated>1742237374993</updated>
       <workItem from="1742237378534" duration="5000" />
-      <workItem from="1742239630976" duration="694000" />
-      <workItem from="1742240472078" duration="966000" />
-      <workItem from="1742251345439" duration="991000" />
-      <workItem from="1742253345099" duration="162000" />
-      <workItem from="1742254435812" duration="8000" />
-      <workItem from="1742278391556" duration="1711000" />
-      <workItem from="1742475189087" duration="5939000" />
-      <workItem from="1742481162713" duration="4792000" />
-      <workItem from="1742828406812" duration="2906000" />
-      <workItem from="1742834546642" duration="1192000" />
     </task>
-    <task id="LOCAL-00001" summary="Patvarkytas duomenų atrinkimas iš užklausos.">
-      <option name="closed" value="true" />
-      <created>1742829286302</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1742829286302</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="OPEN_GENERIC_TABS">
-      <map>
-        <entry key="13c71104-c0e9-4fe4-acea-53284b634051" value="TOOL_WINDOW" />
-      </map>
-    </option>
-    <option name="TAB_STATES">
-      <map>
-        <entry key="13c71104-c0e9-4fe4-acea-53284b634051">
-          <value>
-            <State />
-          </value>
-        </entry>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="origin/feature-vartotojoSasaja" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Patvarkytas duomenų atrinkimas iš užklausos." />
-    <option name="LAST_COMMIT_MESSAGE" value="Patvarkytas duomenų atrinkimas iš užklausos." />
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/ui/mainScreen.py</url>
+          <line>33</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/BiteTrack$mainScreen.coverage" NAME="mainScreen Coverage Results" MODIFIED="1742840153314" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/BiteTrack$.coverage" NAME=" Coverage Results" MODIFIED="1742840722243" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/BiteTrack$main.coverage" NAME="mainPage Coverage Results" MODIFIED="1742398068325" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/BiteTrack$LLM.coverage" NAME="LLM Coverage Results" MODIFIED="1742839076835" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/BiteTrack$voiceToText.coverage" NAME="voiceToText Coverage Results" MODIFIED="1742843336418" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/BiteTrack$database.coverage" NAME="database Coverage Results" MODIFIED="1742405849942" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/database" />
-    <SUITE FILE_PATH="coverage/BiteTrack$mainScreen__1_.coverage" NAME="mainScreen (1) Coverage Results" MODIFIED="1742840465681" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ui" />
+    <SUITE FILE_PATH="coverage/BiteTrack$mainScreen__1_.coverage" NAME="mainScreen (1) Coverage Results" MODIFIED="1742845303708" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ui" />
   </component>
 </project>

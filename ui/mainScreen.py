@@ -5,6 +5,8 @@ from kivy.uix.button import Button
 from ui.statisticsScreen import StatisticsScreen
 from database.database import Database
 from LLM import send_query  # Importing function from LLM.py
+from voiceToText import VoiceToText
+from kivy.clock import Clock
 
 # Laikinas produktų sąrašas (produktų, kurie gali būti išsaugoti į DB)
 PRODUCTS = []
@@ -15,10 +17,29 @@ Builder.load_file("UI.kv")
 
 
 class MainScreen(Screen):
+    def __init__(self, **kwargs):
+        super(MainScreen, self).__init__(**kwargs)
+        self.voice_to_text = VoiceToText()
 
     def start_recording(self):
-        print("🔴 Pradėtas įrašymas...")
-        self.ids.transcription.text = "Tai pavyzdinis transkribuotas tekstas."
+        if not self.voice_to_text.is_recording:
+            self.ids.transcription.text = "🔴 Įrašymas pradėtas... Paspauskite dar kartą, kad sustabdytumėte."
+            self.voice_to_text.start_recording(self.handle_transcription_result)
+        else:
+            self.ids.transcription.text = "🔎 Transkribuojama..."
+            self.voice_to_text.is_recording = False
+
+    def handle_transcription_result(self, result):
+        # Schedule UI update on the main thread
+        Clock.schedule_once(lambda dt: self.update_transcription(result))
+
+    def update_transcription(self, result):
+        self.ids.transcription.text = result
+        self.send_to_llm()
+
+    def set_language(self, language):
+        self.voice_to_text.set_language(language)
+        self.ids.transcription.text = f"Kalba pakeista į: {language}"
 
     def clear_text(self):
         self.ids.transcription.text = ""
