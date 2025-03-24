@@ -56,6 +56,7 @@ class MainScreen(Screen):
 
     def display_results(self, result):
         """Display recognized products below the 'Atpažinti produktai' section."""
+        # OPS-12
         self.ids.transcription.text = result
         self.update_product_list(result)
 
