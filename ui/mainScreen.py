@@ -5,6 +5,8 @@ from kivy.uix.label import Label
 from kivy.uix.popup import Popup
 from kivy.uix.screenmanager import Screen, ScreenManager
 from kivy.uix.button import Button
+from kivy.uix.textinput import TextInput
+
 from ui.statisticsScreen import StatisticsScreen
 from database.database import Database
 from LLM import send_query  # Importing function from LLM.py
@@ -69,11 +71,6 @@ class MainScreen(Screen):
             if line.strip().startswith("- Patiekalas:"):
                 product_name = line.split(":")[1].strip()
 
-                # Add only the product_name to PRODUCTS list
-                PRODUCTS.append({
-                    "product_name": product_name,
-                })
-
                 print(f"Product added: {product_name}")
                 # Save the product to the database
                 db.add_product(product_name)
@@ -82,50 +79,113 @@ class MainScreen(Screen):
         """Display recognized products below the 'Atpažinti produktai' section."""
         # OPS-12
         self.ids.transcription.text = result
-        self.update_product_list(result)
+        self.save_to_products(result)
+        self.update_product_list()
+
+    def save_to_products(self, result):
+        lines = result.split("\n")
+        id = 1
+        for line in lines:
+            if line.strip().startswith("- Patiekalas:"):
+                product_name = line.split(":")[1].strip()
+                PRODUCTS.append({
+                    "id": id,
+                    "product_name": product_name
+                })
+                id += 1
 
     def load_statistics(self):
         self.manager.current = "statistics"
 
-    def update_product_list(self, result):
+
+    def update_product_list(self):
         product_list = self.ids.product_list
         product_list.clear_widgets()
 
-        lines = result.split("\n")
-        for line in lines:
-            if line.strip().startswith("- Patiekalas:"):
-                product_name = line.split(":")[1].strip()
+        for product in PRODUCTS:
 
-                # Add a button for each recognized product
-                product_button = Button(
-                    text=product_name,
-                    size_hint_y=None,
-                    height=40
-                )
-                delete_button = Button(
-                    text="Pašalinti",
-                    size_hint_x=None,
-                    width=100,  # Priklauso nuo to, kaip norite, kad jis atrodytų
-                    height=40,
-                    on_press=lambda btn, p_name=product_name: self.confirm_delete(p_name)
-                )
+            # Add a button for each recognized product
+            product_button = Button(
+                text=product["product_name"],
+                size_hint_y=None,
+                height=40,
+                on_press=lambda btn, p_id=product["id"]: self.edit_product(p_id)
+            )
+            delete_button = Button(
+                text="Pašalinti",
+                size_hint_x=None,
+                width=100,
+                height=40,
+                on_press=lambda btn, p_id=product["id"]: self.confirm_delete(p_id)
+            )
 
-                # Įdėjome abu mygtukus į BoxLayout
-                product_layout = BoxLayout(orientation='horizontal', size_hint_y=None, height=40)
-                product_layout.add_widget(product_button)
-                product_layout.add_widget(delete_button)
+            product_layout = BoxLayout(orientation='horizontal', size_hint_y=None, height=40)
+            product_layout.add_widget(product_button)
+            product_layout.add_widget(delete_button)
 
-                # Pridedame šį BoxLayout į sąrašą
-                product_list.add_widget(product_layout)
+            # Pridedame šį BoxLayout į sąrašą
+            product_list.add_widget(product_layout)
 
-    def confirm_delete(self, product_name):
+    def edit_product(self, product_id):
+        # Sukuriame pop-up su galimybe redaguoti produkto pavadinimą
+        popup_layout = BoxLayout(orientation='vertical', padding=10, spacing=10)
+
+        # Sukuriame teksto lauką su esamu produkto pavadinimu
+        self.product_input = TextInput(
+            text=PRODUCTS[product_id]["product_name"],
+            size_hint_y=None,
+            height=40
+        )
+
+        # Sukuriame mygtukus „Išsaugoti“ ir „Atšaukti“
+        button_layout = BoxLayout(spacing=10)
+
+        save_button = Button(
+            text="Išsaugoti",
+            on_press=lambda btn, p_id = product_id: self.save_edited_product(p_id, popup)
+        )
+        cancel_button = Button(
+            text="Atšaukti",
+            on_press=lambda btn: popup.dismiss()
+        )
+
+        button_layout.add_widget(save_button)
+        button_layout.add_widget(cancel_button)
+
+        # Sudedame tekstą ir mygtukus į pop-up langą
+        popup_layout.add_widget(self.product_input)
+        popup_layout.add_widget(button_layout)
+
+        popup = Popup(
+            title=f"Redaguoti produktą: {PRODUCTS[product_id]['product_name']}",
+            content=popup_layout,
+            size_hint=(0.5, 0.4)
+        )
+        popup.open()
+
+    def save_edited_product(self, old_product_name, popup):
+        PRODUCTS[old_product_name]["product_name"] = self.product_input.text.strip()
+        new_product_name = self.product_input.text.strip()
+
+        if new_product_name:
+            popup.dismiss()
+            #self.update_product_list("")
+
+            success_popup = Popup(
+                title="Sėkminga operacija",
+                content=Label(text=f"Produkto pavadinimas sėkmingai pakeistas į '{new_product_name}'."),
+                size_hint=(0.5, 0.3)
+            )
+            success_popup.open()
+
+    def confirm_delete(self, product_id):
         # Sukuriame patvirtinimo langą
         popup_layout = BoxLayout(orientation='vertical', padding=10, spacing=10)
-        label = Label(text=f"Ar tikrai norite ištrinti {product_name}?")
+        label = Label(text=f"Ar tikrai norite ištrinti {product_id}?")
         button_layout = BoxLayout(spacing=10)
 
         # Mygtukai "Taip" ir "Atšaukti"
-        confirm_button = Button(text="Taip", on_press=lambda btn: self.delete_product(product_name, popup))
+        confirm_button = Button(text="Taip", on_press=lambda btn: self.delete_product(product_id, popup))
         cancel_button = Button(text="Atšaukti", on_press=lambda btn: popup.dismiss())
 
         button_layout.add_widget(confirm_button)
@@ -137,16 +197,18 @@ class MainScreen(Screen):
         popup = Popup(title="Patvirtinimas", content=popup_layout, size_hint=(0.5, 0.3))
         popup.open()
 
-    def delete_product(self, product_name, popup):
+    def delete_product(self, product_id, popup):
         # Uždaryti patvirtinimo langą
         popup.dismiss()
+        global PRODUCTS
+        PRODUCTS = [product for product in PRODUCTS if product['id'] != product_id]
 
         # Atnaujinti produktų sąrašą (jei reikia)
-        self.update_product_list("")
+        self.update_product_list()
 
         # Sėkmingo ištrynimo popup su "OK" mygtuku
         success_popup_layout = BoxLayout(orientation='vertical', padding=10, spacing=10)
-        success_label = Label(text=f"Įrašas '{product_name}' sėkmingai ištrintas.")
+        success_label = Label(text=f"Įrašas '{product_id}' sėkmingai ištrintas.")
         ok_button = Button(text="OK", on_press=lambda btn: success_popup.dismiss())
 
         success_popup_layout.add_widget(success_label)
