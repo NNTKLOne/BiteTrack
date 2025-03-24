@@ -107,14 +107,13 @@ class LlamaApp(BoxLayout):
     def process_response(self, response):
         if "error" in response:
             self.output_label.text = f"{response['error']}"
-        else:
+        elif "text" in response:
             result = response.get("text", "Negauta atsakymo")
-
-
             dishes = result.split("\n")
             formatted_output = "Aptikti patiekalai:\n" + "\n".join(dishes)
-
             self.output_label.text = formatted_output
+        else:
+            self.output_label.text = "Negauta atsakymo"
 
         self.output_label.size_hint_y = None
         self.output_label.height = self.output_label.texture_size[1]
