@@ -23,6 +23,7 @@ class MainScreen(Screen):
     def clear_text(self):
         self.ids.transcription.text = ""
 
+        # OPS-37
     def send_to_llm(self):
         query = self.ids.transcription.text
         self.clear_text()
@@ -32,7 +33,9 @@ class MainScreen(Screen):
         # Display results in the UI
         self.display_results(result)
 
+        # OPS-39
     def save_to_database(self, result):
+
         """Save recognized products into the database"""
         # Assuming result is a string with product names listed in a specific format
         # Example result: "- Patiekalas: Kebabas su česnakiniu padažu\n- Patiekalas: Cepelinai su kiauliena"
