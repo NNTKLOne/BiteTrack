@@ -72,9 +72,16 @@ class VoiceToText:
             result = self._run_transcription()
             Clock.schedule_once(lambda dt: callback(result))
 
+
+
+
         except Exception as e:
-            print(f"⚠️ Klaida įrašymo metu: {e}")
-            Clock.schedule_once(lambda dt: callback(f"Klaida įrašant: {e}"))
+
+            error_message = f"Klaida įrašymo metu: {e}"  # Išsaugome klaidos pranešimą į kintamąjį
+
+            print(error_message)
+
+            Clock.schedule_once(lambda dt: callback(error_message))  # Naudojame išsaugotą reikšmę
 
     def _is_audio_file_empty(self, filename):
         try:
@@ -111,3 +118,14 @@ class VoiceToText:
             'Lithuanian': 'lt'
         }
         self.language_code = language_map.get(language, 'en')
+
+    def _get_audio_length(self, filename):
+        """Apskaičiuoja garso failo trukmę sekundėmis."""
+        try:
+            with wave.open(filename, 'rb') as wf:
+                frames = wf.getnframes()
+                rate = wf.getframerate()
+                return frames / float(rate)
+        except Exception as e:
+            print(f"Klaida skaičiuojant garso ilgį: {e}")
+            return 0
