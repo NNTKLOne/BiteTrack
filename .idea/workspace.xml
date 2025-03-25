@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6aea24bb-4b7a-4cfa-8795-cd12df36a44f" name="Changes" comment="Atnaujinti LLM API unit testai 92% padengiamumas">
-      <change beforePath="$PROJECT_DIR$/.idea/BiteTrack.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/BiteTrack.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/UI.kv" beforeDir="false" afterPath="$PROJECT_DIR$/ui/UI.kv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/voiceToText.py" beforeDir="false" afterPath="$PROJECT_DIR$/voiceToText.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,19 +37,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python tests.Python tests in test_LLM.py.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests in test_database.py.executor&quot;: &quot;Run&quot;,
-    &quot;Python.mainScreen (1).executor&quot;: &quot;Run&quot;,
-    &quot;Python.voiceToText.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python tests.Python tests in test_LLM.py.executor": "Run",
+    "Python tests.Python tests in test_database.py.executor": "Run",
+    "Python.mainScreen (1).executor": "Run",
+    "Python.voiceToText.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Python.mainScreen (1)">
     <configuration name="mainScreen (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="BiteTrack" />
@@ -265,6 +262,6 @@
     <SUITE FILE_PATH="coverage/BiteTrack$LLM.coverage" NAME="LLM Coverage Results" MODIFIED="1742839076835" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/BiteTrack$voiceToText.coverage" NAME="voiceToText Coverage Results" MODIFIED="1742843336418" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/BiteTrack$database.coverage" NAME="database Coverage Results" MODIFIED="1742405849942" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/database" />
-    <SUITE FILE_PATH="coverage/BiteTrack$mainScreen__1_.coverage" NAME="mainScreen (1) Coverage Results" MODIFIED="1742860526982" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ui" />
+    <SUITE FILE_PATH="coverage/BiteTrack$mainScreen__1_.coverage" NAME="mainScreen (1) Coverage Results" MODIFIED="1742860952967" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ui" />
   </component>
 </project>
