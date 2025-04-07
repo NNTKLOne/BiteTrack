@@ -27,7 +27,8 @@ jobs:
     - name: Run tests in 2nd_tests folder (with PYTHONPATH)
       run: |
         export PYTHONPATH="${PYTHONPATH}:$(pwd)"
-        pytest 2nd_tests/ --tb=short --disable-warnings > test-output.log || true
+        pytest 2nd_tests/ -v --tb=short --disable-warnings | tee test-output.log
+    
     
 
     - name: Archive test logs
