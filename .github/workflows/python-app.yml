@@ -14,6 +14,11 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
+    - name: Install system dependencies (PortAudio)
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y libportaudio2 portaudio19-dev
+
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
