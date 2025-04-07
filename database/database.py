@@ -41,15 +41,13 @@ class Database:
         conn.commit()
         conn.close()
 
-
     def get_all_products(self):
         conn = self.get_connection()
         cursor = conn.cursor()
-        cursor.execute('SELECT * FROM Product')
+        cursor.execute('SELECT * FROM Product ORDER BY created_at DESC')
         products = cursor.fetchall()
         conn.close()
         return [dict(p) for p in products]
-
 
     def delete_product(self, product_id):
         conn = self.get_connection()
@@ -61,7 +59,11 @@ class Database:
     def get_products_today(self):
         conn = self.get_connection()
         cursor = conn.cursor()
-        cursor.execute("SELECT * FROM Product WHERE DATE(created_at) = DATE('now')")
+        cursor.execute("""
+            SELECT * FROM Product 
+            WHERE DATE(created_at) = DATE('now') 
+            ORDER BY created_at DESC
+        """)
         products = cursor.fetchall()
         conn.close()
         return [dict(p) for p in products]
@@ -73,6 +75,7 @@ class Database:
             SELECT * FROM Product
             WHERE strftime('%W', created_at) = strftime('%W', 'now')
             AND strftime('%Y', created_at) = strftime('%Y', 'now')
+            ORDER BY created_at DESC
         """)
         products = cursor.fetchall()
         conn.close()
@@ -85,7 +88,9 @@ class Database:
             SELECT * FROM Product
             WHERE strftime('%m', created_at) = strftime('%m', 'now')
             AND strftime('%Y', created_at) = strftime('%Y', 'now')
+            ORDER BY created_at DESC
         """)
         products = cursor.fetchall()
         conn.close()
         return [dict(p) for p in products]
+

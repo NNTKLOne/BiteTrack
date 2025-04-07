@@ -202,6 +202,7 @@ class MainScreen(Screen):
             # Atidarome langą
             success_popup.open()
 
+    #OPS-2
     def confirm_delete(self, product_id):
         # Sukuriame patvirtinimo langą
         popup_layout = BoxLayout(orientation='vertical', padding=10, spacing=10)
@@ -277,6 +278,7 @@ class MainScreen(Screen):
 class MyApp(App):
     def build(self):
         self.db = db
+        #db.add_product("cepelinas", "2025-04-08")
         sm = ScreenManager()
         sm.add_widget(MainScreen(name="main"))
         sm.add_widget(StatisticsScreen(name="statistics"))
