@@ -200,7 +200,7 @@
       <workItem from="1743487213476" duration="364000" />
       <workItem from="1743488983758" duration="1312000" />
       <workItem from="1743954064555" duration="15000" />
-      <workItem from="1744041740518" duration="9340000" />
+      <workItem from="1744041740518" duration="9390000" />
     </task>
     <task id="LOCAL-00001" summary="Pridėta integracija su VTT prie UI">
       <option name="closed" value="true" />
@@ -306,7 +306,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744056414124</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="fix requirements.txt">
+      <option name="closed" value="true" />
+      <created>1744056458688</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1744056458688</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
