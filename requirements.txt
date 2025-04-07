@@ -1,0 +1,13 @@
+Kivy~=2.3.1
+requests~=2.32.3
+pytest~=8.3.5
+packaging~=24.2
+setuptools~=68.2.0
+numpy~=2.2.4
+colorama~=0.4.6
+Pygments~=2.19.1
+docutils~=0.21.2
+certifi~=2025.1.31
+#pywin32
+sounddevice~=0.5.1
+groq~=0.19.0
