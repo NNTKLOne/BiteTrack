@@ -103,7 +103,7 @@ class LlamaApp(BoxLayout):
             return {"error": f"Klaida jungiantis: {str(e)}"}
         except Exception as e:
             return {"error": f"Klaida, jungiantis prie API: {str(e)}"}
-
+## test CI
     def process_response(self, response):
         if "error" in response:
             self.output_label.text = f"{response['error']}"
