@@ -8,7 +8,6 @@ BASE_URL = "https://api.groq.com/openai/v1/chat/completions"
 
 def call_llama_api(query):
     try:
-        asdasdasd
         # Prompt for extracting food items
         prompt = (
             "Pavyzdys:\n"
