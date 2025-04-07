@@ -23,10 +23,20 @@ def test_empty_query():
 @patch('LLM.requests.post')
 def test_invalid_api_key(mock_post):
     from requests.exceptions import HTTPError
-    mock_post.return_value.raise_for_status.side_effect = HTTPError("401 Client Error: Unauthorized")
+
+    # Simuliuojam 401 klaidą
+    mock_response = mock_post.return_value
+    mock_response.raise_for_status.side_effect = HTTPError("401 Client Error: Unauthorized")
+    mock_response.status_code = 401
+    mock_response.json.return_value = {"error": "Unauthorized"}
+
     result = call_llama_api("valgiau kebabą")
+
+    # Patikrinam, ar funkcija grąžina klaidą apie neteisingą prisijungimą
     assert "error" in result
     assert "401" in result["error"]
+    assert "Unauthorized" in result["error"]
+
 
 # TC-LLM-API-001-04: Tinklo klaida (503)
 @patch('LLM.requests.post')
