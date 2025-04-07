@@ -1,6 +1,6 @@
 import json
 import requests
-
+#
 # Your Groq API Key
 API_KEY = "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"
 BASE_URL = "https://api.groq.com/openai/v1/chat/completions"
@@ -8,6 +8,7 @@ BASE_URL = "https://api.groq.com/openai/v1/chat/completions"
 
 def call_llama_api(query):
     try:
+        asdasdasd
         # Prompt for extracting food items
         prompt = (
             "Pavyzdys:\n"
