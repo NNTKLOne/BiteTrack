@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6aea24bb-4b7a-4cfa-8795-cd12df36a44f" name="Changes" comment="Pakeista actions/upload-artifact versija is 3 i 4">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="6aea24bb-4b7a-4cfa-8795-cd12df36a44f" name="Changes" comment="fix requirements.txt">
       <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -201,7 +200,7 @@
       <workItem from="1743487213476" duration="364000" />
       <workItem from="1743488983758" duration="1312000" />
       <workItem from="1743954064555" duration="15000" />
-      <workItem from="1744041740518" duration="9291000" />
+      <workItem from="1744041740518" duration="9340000" />
     </task>
     <task id="LOCAL-00001" summary="Pridėta integracija su VTT prie UI">
       <option name="closed" value="true" />
@@ -299,7 +298,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744056189134</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="fix requirements.txt">
+      <option name="closed" value="true" />
+      <created>1744056414124</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1744056414124</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -337,7 +344,8 @@
     <MESSAGE value="Pridetas requirements.txt failas" />
     <MESSAGE value="Testing CI" />
     <MESSAGE value="Pakeista actions/upload-artifact versija is 3 i 4" />
-    <option name="LAST_COMMIT_MESSAGE" value="Pakeista actions/upload-artifact versija is 3 i 4" />
+    <MESSAGE value="fix requirements.txt" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix requirements.txt" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
