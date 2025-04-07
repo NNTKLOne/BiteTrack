@@ -11,8 +11,8 @@ for noisy_module in ['httpx', 'httpcore', 'groq']:
 
 def test_audio_transcription_and_llm_response_lt():
     # 1. Failo egzistavimo patikrinimas
-    file_path = "audio_test.wav"
-    assert os.path.exists(file_path), " Garso failas 'audio_test.wav' nerastas."
+    file_path = os.path.join(os.path.dirname(__file__), "audio_test.wav")
+    assert os.path.isfile(file_path), f" Failas nerastas: {file_path}"
 
     # 2. Inicijuojam transkripcijos klasę ir nustatome lietuvių kalbą
     vtt = VoiceToText()

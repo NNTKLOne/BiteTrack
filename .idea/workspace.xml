@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6aea24bb-4b7a-4cfa-8795-cd12df36a44f" name="Changes" comment="LLM ir VTT integracinis testas">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/python-app.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/python-app.yml" afterDir="false" />
+    <list default="true" id="6aea24bb-4b7a-4cfa-8795-cd12df36a44f" name="Changes" comment="Pridėtas PortAudio paketo atsisiuntimas CI">
+      <change beforePath="$PROJECT_DIR$/2nd_tests/test_voice_llm_integration.py" beforeDir="false" afterPath="$PROJECT_DIR$/2nd_tests/test_voice_llm_integration.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -360,7 +360,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744061363351</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Pridėtas PortAudio paketo atsisiuntimas CI">
+      <option name="closed" value="true" />
+      <created>1744061639270</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1744061639270</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -404,7 +412,8 @@
     <MESSAGE value="CI build testas" />
     <MESSAGE value="CI test feature-llm" />
     <MESSAGE value="LLM ir VTT integracinis testas" />
-    <option name="LAST_COMMIT_MESSAGE" value="LLM ir VTT integracinis testas" />
+    <MESSAGE value="Pridėtas PortAudio paketo atsisiuntimas CI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Pridėtas PortAudio paketo atsisiuntimas CI" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -429,7 +438,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/BiteTrack$mainScreen.coverage" NAME="mainScreen Coverage Results" MODIFIED="1744060146420" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ui" />
-    <SUITE FILE_PATH="coverage/BiteTrack$.coverage" NAME=" Coverage Results" MODIFIED="1744061248265" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2nd_tests" />
+    <SUITE FILE_PATH="coverage/BiteTrack$.coverage" NAME=" Coverage Results" MODIFIED="1744061780926" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2nd_tests" />
     <SUITE FILE_PATH="coverage/BiteTrack$main.coverage" NAME="mainPage Coverage Results" MODIFIED="1742398068325" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/BiteTrack$LLM.coverage" NAME="LLM Coverage Results" MODIFIED="1742839076835" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/BiteTrack$voiceToText.coverage" NAME="voiceToText Coverage Results" MODIFIED="1742843336418" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
