@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6aea24bb-4b7a-4cfa-8795-cd12df36a44f" name="Changes" comment="Testing CI">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/python-app.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/python-app.yml" afterDir="false" />
+    <list default="true" id="6aea24bb-4b7a-4cfa-8795-cd12df36a44f" name="Changes" comment="Pakeista actions/upload-artifact versija is 3 i 4">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -200,7 +201,7 @@
       <workItem from="1743487213476" duration="364000" />
       <workItem from="1743488983758" duration="1312000" />
       <workItem from="1743954064555" duration="15000" />
-      <workItem from="1744041740518" duration="9050000" />
+      <workItem from="1744041740518" duration="9291000" />
     </task>
     <task id="LOCAL-00001" summary="Pridėta integracija su VTT prie UI">
       <option name="closed" value="true" />
@@ -290,7 +291,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744055948120</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Pakeista actions/upload-artifact versija is 3 i 4">
+      <option name="closed" value="true" />
+      <created>1744056189134</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1744056189134</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -327,7 +336,8 @@
     <MESSAGE value="Perkeliamas 2nd testas" />
     <MESSAGE value="Pridetas requirements.txt failas" />
     <MESSAGE value="Testing CI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Testing CI" />
+    <MESSAGE value="Pakeista actions/upload-artifact versija is 3 i 4" />
+    <option name="LAST_COMMIT_MESSAGE" value="Pakeista actions/upload-artifact versija is 3 i 4" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
