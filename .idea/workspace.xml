@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6aea24bb-4b7a-4cfa-8795-cd12df36a44f" name="Changes" comment="Merging develop into main - Finished program v1">
-      <change beforePath="$PROJECT_DIR$/.coverage" beforeDir="false" afterPath="$PROJECT_DIR$/.coverage" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="6aea24bb-4b7a-4cfa-8795-cd12df36a44f" name="Changes" comment="Pridedamas 2nd 1 uzd LLM testai" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -196,7 +191,7 @@
       <workItem from="1743487213476" duration="364000" />
       <workItem from="1743488983758" duration="1312000" />
       <workItem from="1743954064555" duration="15000" />
-      <workItem from="1744041740518" duration="6568000" />
+      <workItem from="1744041740518" duration="6906000" />
     </task>
     <task id="LOCAL-00001" summary="Pridėta integracija su VTT prie UI">
       <option name="closed" value="true" />
@@ -238,7 +233,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742861216689</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Pridedamas 2nd 1 uzd LLM testai">
+      <option name="closed" value="true" />
+      <created>1744053947234</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1744053947234</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -257,6 +260,11 @@
             <State />
           </value>
         </entry>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
       </map>
     </option>
   </component>
@@ -266,7 +274,8 @@
     <MESSAGE value="Nieko svarbaus" />
     <MESSAGE value="Atnaujinti LLM API unit testai 92% padengiamumas" />
     <MESSAGE value="Merging develop into main - Finished program v1" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merging develop into main - Finished program v1" />
+    <MESSAGE value="Pridedamas 2nd 1 uzd LLM testai" />
+    <option name="LAST_COMMIT_MESSAGE" value="Pridedamas 2nd 1 uzd LLM testai" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
