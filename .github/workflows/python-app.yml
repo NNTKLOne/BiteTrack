@@ -24,9 +24,11 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Run tests in 2nd_tests folder
+    - name: Run tests in 2nd_tests folder (with PYTHONPATH)
       run: |
+        export PYTHONPATH="${PYTHONPATH}:$(pwd)"
         pytest 2nd_tests/ --tb=short --disable-warnings > test-output.log || true
+    
 
     - name: Archive test logs
       uses: actions/upload-artifact@v4
