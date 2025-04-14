@@ -21,8 +21,9 @@ jobs:
 
     - name: Install libmtdev1 for Kivy
       run: sudo apt-get install -y libmtdev1
-        - name: Install virtual display for GUI testing
-          run: |
+
+    - name: Install virtual display for GUI testing
+      run: |
         sudo apt-get install -y xvfb
         Xvfb :99 -ac &
         echo "DISPLAY=:99" >> $GITHUB_ENV
