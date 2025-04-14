@@ -8,7 +8,7 @@ import time
 import os
 
 class VoiceToText:
-    MAX_RECORDING_DURATION = 40 # sekundes
+    MAX_RECORDING_DURATION = 30 # sekundes
     MIN_RECORDING_DURATION = 3 # sekundes
     def __init__(self):
         self.is_recording = False
