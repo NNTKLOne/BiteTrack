@@ -1,7 +1,7 @@
 import pytest
 from unittest.mock import patch
 from LLM import call_llama_api, process_response, send_query
-
+#t
 # TC-LLM-API-001-01: Sėkminga užklausa
 @patch('LLM.requests.post')
 def test_successful_response(mock_post):
