@@ -125,9 +125,20 @@ class StatisticsScreen(Screen):
         name_input = TextInput(text=product['product_name'])
 
         def save_changes(_):
-            db.update_product(product['id'], name_input.text)
+            new_name = name_input.text.strip()
+
+            if not new_name:
+                self.show_error("Pavadinimas negali būti tuščias.")
+                return
+
+            if len(new_name) > 255:
+                self.show_error("Pavadinimas negali viršyti 255 simbolių.")
+                return
+
+            db.update_product(product['id'], new_name)
             self.set_filter(self.ids.spinner.text)
             popup.dismiss()
+            self.show_confirmation("Pavadinimas sėkmingai atnaujintas.")
 
         def cancel(_):
             popup.dismiss()

@@ -181,43 +181,54 @@ class MainScreen(Screen):
         )
         popup.open()
 
+    def show_error(self, message):
+        layout = BoxLayout(orientation='vertical', spacing=10, padding=10)
+        label = Label(text=message)
+        ok_button = Button(text="Gerai", size_hint_y=None, height=40)
+        layout.add_widget(label)
+        layout.add_widget(ok_button)
+
+        popup = Popup(title="Klaida", content=layout, size_hint=(0.7, 0.3))
+        ok_button.bind(on_press=popup.dismiss)
+        popup.open()
+
     def save_edited_product(self, product_id, popup):
         new_product_name = self.product_input.text.strip()
 
-        if new_product_name:
-            # Atnaujinti produkto pavadinimą sąraše
-            for product in PRODUCTS:
-                if product["id"] == product_id:
-                    product["product_name"] = new_product_name
-                    break  # Baigiam ciklą, kai randam reikiamą produktą
+        if not new_product_name:
+            self.show_error("Pavadinimas negali būti tuščias.")
+            return
 
-            # Uždaryti redagavimo langą
-            popup.dismiss()
+        if len(new_product_name) > 255:
+            self.show_error("Pavadinimas negali viršyti 255 simbolių.")
+            return
 
-            # Atnaujinti sąrašą ekrane
-            self.update_product_list()
+        # Atnaujinti produkto pavadinimą sąraše
+        for product in PRODUCTS:
+            if product["id"] == product_id:
+                product["product_name"] = new_product_name
+                break
 
-            # Sukuriame pranešimo lango turinį
-            success_layout = BoxLayout(orientation='vertical', padding=10, spacing=10)
-            success_label = Label(text=f"Produkto pavadinimas pakeistas į '{new_product_name}'")
-            ok_button = Button(text="OK", size_hint=(1, None), height=40)
+        # Uždaryti redagavimo langą
+        popup.dismiss()
 
-            # Sukuriame Popup langą
-            success_popup = Popup(
-                title="Sėkminga operacija",
-                content=success_layout,
-                size_hint=(0.5, 0.3)
-            )
+        # Atnaujinti sąrašą ekrane
+        self.update_product_list()
 
-            # Priskiriame mygtukui veiksmą uždaryti langą
-            ok_button.bind(on_press=lambda btn: success_popup.dismiss())
+        # Sėkmės pranešimas
+        success_layout = BoxLayout(orientation='vertical', padding=10, spacing=10)
+        success_label = Label(text=f"Produkto pavadinimas pakeistas į '{new_product_name}'")
+        ok_button = Button(text="OK", size_hint=(1, None), height=40)
+        success_layout.add_widget(success_label)
+        success_layout.add_widget(ok_button)
 
-            # Pridedame elementus į langą
-            success_layout.add_widget(success_label)
-            success_layout.add_widget(ok_button)
-
-            # Atidarome langą
-            success_popup.open()
+        success_popup = Popup(
+            title="Sėkminga operacija",
+            content=success_layout,
+            size_hint=(0.5, 0.3)
+        )
+        ok_button.bind(on_press=lambda btn: success_popup.dismiss())
+        success_popup.open()
 
     #OPS-2
     def confirm_delete(self, product_id):
