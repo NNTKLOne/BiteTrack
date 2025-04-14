@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6aea24bb-4b7a-4cfa-8795-cd12df36a44f" name="Changes" comment="Testas, ar veikia github actions feature-ll,">
-      <change afterPath="$PROJECT_DIR$/database/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/__init__.py" afterDir="false" />
+    <list default="true" id="6aea24bb-4b7a-4cfa-8795-cd12df36a44f" name="Changes" comment="T">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/python-app.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/python-app.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,7 +23,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="feature-LLM" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -50,37 +50,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python tests.Python tests for test_gui_integration.test_product_shown_in_statistics_today.executor": "Run",
-    "Python tests.Python tests for test_voice_llm_integration.test_audio_transcription_and_llm_response_lt.executor": "Debug",
-    "Python tests.Python tests for test_voice_llm_integration.test_llm_response_on_empty_or_invalid_audio.executor": "Run",
-    "Python tests.Python tests for test_voice_llm_integration.test_silent_audio_returns_no_food.executor": "Debug",
-    "Python tests.Python tests for test_voice_llm_integration.test_transcription_fails_on_empty_audio.executor": "Run",
-    "Python tests.Python tests in test_LLM.py.executor": "Run",
-    "Python tests.Python tests in test_VTT.py.executor": "Run",
-    "Python tests.Python tests in test_database.py.executor": "Run",
-    "Python tests.Python tests in test_gui_integration.py.executor": "Run",
-    "Python tests.Python tests in test_llm_api.py.executor": "Run",
-    "Python tests.Python tests in test_llm_api_2nd.py.executor": "Run",
-    "Python tests.Python tests in test_statistic.py.executor": "Run",
-    "Python tests.Python tests in test_voice_llm_db_integration.py.executor": "Run",
-    "Python tests.Python tests in test_voice_llm_integration.py.executor": "Run",
-    "Python tests.Python tests in voice_llm_db_integration.py.executor": "Run",
-    "Python.mainScreen (1).executor": "Run",
-    "Python.mainScreen.executor": "Run",
-    "Python.voiceToText.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "feature-LLM",
-    "last_opened_file_path": "D:/PyCharm 2024.2.1/BiteTrack/2nd_tests",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python tests.Python tests for test_gui_integration.test_product_shown_in_statistics_today.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_voice_llm_integration.test_audio_transcription_and_llm_response_lt.executor&quot;: &quot;Debug&quot;,
+    &quot;Python tests.Python tests for test_voice_llm_integration.test_llm_response_on_empty_or_invalid_audio.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_voice_llm_integration.test_silent_audio_returns_no_food.executor&quot;: &quot;Debug&quot;,
+    &quot;Python tests.Python tests for test_voice_llm_integration.test_transcription_fails_on_empty_audio.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in test_LLM.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in test_VTT.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in test_database.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in test_gui_integration.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in test_llm_api.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in test_llm_api_2nd.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in test_statistic.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in test_voice_llm_db_integration.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in test_voice_llm_integration.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in voice_llm_db_integration.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python.mainScreen (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.mainScreen.executor&quot;: &quot;Run&quot;,
+    &quot;Python.voiceToText.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/PyCharm 2024.2.1/BiteTrack/2nd_tests&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\PyCharm 2024.2.1\BiteTrack\2nd_tests" />
@@ -173,10 +173,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python tests.Python tests in test_VTT.py" />
-        <item itemvalue="Python tests.Python tests in test_database.py" />
         <item itemvalue="Python tests.Python tests in test_statistic.py" />
         <item itemvalue="Python tests.Python tests in test_llm_api_2nd.py" />
         <item itemvalue="Python tests.Python tests in test_LLM.py" />
+        <item itemvalue="Python tests.Python tests in test_database.py" />
       </list>
     </recent_temporary>
   </component>
@@ -478,63 +478,95 @@
       <option name="project" value="LOCAL" />
       <updated>1744667438728</updated>
     </task>
-    <task id="LOCAL-00035" summary="Testas, ar veikia github actions feature-ll,">
+    <task id="LOCAL-00035" summary="T">
       <option name="closed" value="true" />
-      <created>1744668760128</created>
+      <created>1744669801065</created>
       <option name="number" value="00035" />
       <option name="presentableId" value="LOCAL-00035" />
       <option name="project" value="LOCAL" />
-      <updated>1744668760128</updated>
+      <updated>1744669801065</updated>
     </task>
-    <task id="LOCAL-00036" summary="Testas, ar veikia github actions feature-ll,">
+    <task id="LOCAL-00036" summary="T">
       <option name="closed" value="true" />
-      <created>1744668878717</created>
+      <created>1744669930075</created>
       <option name="number" value="00036" />
       <option name="presentableId" value="LOCAL-00036" />
       <option name="project" value="LOCAL" />
-      <updated>1744668878717</updated>
+      <updated>1744669930075</updated>
     </task>
-    <task id="LOCAL-00037" summary="Testas, ar veikia github actions feature-ll,">
+    <task id="LOCAL-00037" summary="T">
       <option name="closed" value="true" />
-      <created>1744669074894</created>
+      <created>1744670116648</created>
       <option name="number" value="00037" />
       <option name="presentableId" value="LOCAL-00037" />
       <option name="project" value="LOCAL" />
-      <updated>1744669074894</updated>
+      <updated>1744670116648</updated>
     </task>
-    <task id="LOCAL-00038" summary="Testas, ar veikia github actions feature-ll,">
+    <task id="LOCAL-00038" summary="T">
       <option name="closed" value="true" />
-      <created>1744669193158</created>
+      <created>1744670234364</created>
       <option name="number" value="00038" />
       <option name="presentableId" value="LOCAL-00038" />
       <option name="project" value="LOCAL" />
-      <updated>1744669193158</updated>
+      <updated>1744670234364</updated>
     </task>
-    <task id="LOCAL-00039" summary="Testas, ar veikia github actions feature-ll,">
+    <task id="LOCAL-00039" summary="T">
       <option name="closed" value="true" />
-      <created>1744669356440</created>
+      <created>1744670315629</created>
       <option name="number" value="00039" />
       <option name="presentableId" value="LOCAL-00039" />
       <option name="project" value="LOCAL" />
-      <updated>1744669356440</updated>
+      <updated>1744670315629</updated>
     </task>
-    <task id="LOCAL-00040" summary="Testas, ar veikia github actions feature-ll,">
+    <task id="LOCAL-00040" summary="T">
       <option name="closed" value="true" />
-      <created>1744669451604</created>
+      <created>1744670466912</created>
       <option name="number" value="00040" />
       <option name="presentableId" value="LOCAL-00040" />
       <option name="project" value="LOCAL" />
-      <updated>1744669451604</updated>
+      <updated>1744670466913</updated>
     </task>
-    <task id="LOCAL-00041" summary="Testas, ar veikia github actions feature-ll,">
+    <task id="LOCAL-00041" summary="T">
       <option name="closed" value="true" />
-      <created>1744669488634</created>
+      <created>1744670545782</created>
       <option name="number" value="00041" />
       <option name="presentableId" value="LOCAL-00041" />
       <option name="project" value="LOCAL" />
-      <updated>1744669488634</updated>
+      <updated>1744670545782</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="T">
+      <option name="closed" value="true" />
+      <created>1744670686430</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1744670686430</updated>
+    </task>
+    <task id="LOCAL-00043" summary="T">
+      <option name="closed" value="true" />
+      <created>1744670787176</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1744670787176</updated>
+    </task>
+    <task id="LOCAL-00044" summary="T">
+      <option name="closed" value="true" />
+      <created>1744670839159</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1744670839159</updated>
+    </task>
+    <task id="LOCAL-00045" summary="T">
+      <option name="closed" value="true" />
+      <created>1744670912448</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1744670912448</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -586,12 +618,38 @@
     <MESSAGE value="Patvarkytas CI github actions" />
     <MESSAGE value="Testas, ar randami testiniai failas CI" />
     <MESSAGE value="Testas, ar veikia github actions" />
-    <MESSAGE value="Testas, ar veikia github actions feature-ll," />
-    <option name="LAST_COMMIT_MESSAGE" value="Testas, ar veikia github actions feature-ll," />
+    <MESSAGE value="T" />
+    <option name="LAST_COMMIT_MESSAGE" value="T" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/test/test_LLM.py</url>
+          <line>94</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/ui/mainScreen.py</url>
+          <line>38</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/voiceToText.py</url>
+          <line>140</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/2nd_tests/test_voice_llm_integration.py</url>
+          <line>62</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/BiteTrack$mainScreen.coverage" NAME="mainScreen Coverage Results" MODIFIED="1744664235474" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ui" />
-    <SUITE FILE_PATH="coverage/BiteTrack$.coverage" NAME=" Coverage Results" MODIFIED="1744669346491" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/BiteTrack$.coverage" NAME=" Coverage Results" MODIFIED="1744670938290" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/BiteTrack$main.coverage" NAME="mainPage Coverage Results" MODIFIED="1742398068325" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/BiteTrack$LLM.coverage" NAME="LLM Coverage Results" MODIFIED="1742839076835" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/BiteTrack$voiceToText.coverage" NAME="voiceToText Coverage Results" MODIFIED="1742843336418" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
