@@ -50,36 +50,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python tests.Python tests for test_gui_integration.test_product_shown_in_statistics_today.executor": "Run",
-    "Python tests.Python tests for test_voice_llm_integration.test_audio_transcription_and_llm_response_lt.executor": "Debug",
-    "Python tests.Python tests for test_voice_llm_integration.test_llm_response_on_empty_or_invalid_audio.executor": "Run",
-    "Python tests.Python tests for test_voice_llm_integration.test_silent_audio_returns_no_food.executor": "Debug",
-    "Python tests.Python tests for test_voice_llm_integration.test_transcription_fails_on_empty_audio.executor": "Run",
-    "Python tests.Python tests in test_LLM.py.executor": "Run",
-    "Python tests.Python tests in test_database.py.executor": "Run",
-    "Python tests.Python tests in test_gui_integration.py.executor": "Run",
-    "Python tests.Python tests in test_llm_api.py.executor": "Run",
-    "Python tests.Python tests in test_llm_api_2nd.py.executor": "Run",
-    "Python tests.Python tests in test_statistic.py.executor": "Run",
-    "Python tests.Python tests in test_voice_llm_db_integration.py.executor": "Run",
-    "Python tests.Python tests in test_voice_llm_integration.py.executor": "Run",
-    "Python tests.Python tests in voice_llm_db_integration.py.executor": "Run",
-    "Python.mainScreen (1).executor": "Run",
-    "Python.mainScreen.executor": "Run",
-    "Python.voiceToText.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "D:/PyCharm 2024.2.1/BiteTrack/2nd_tests",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python tests.Python tests for test_gui_integration.test_product_shown_in_statistics_today.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_voice_llm_integration.test_audio_transcription_and_llm_response_lt.executor&quot;: &quot;Debug&quot;,
+    &quot;Python tests.Python tests for test_voice_llm_integration.test_llm_response_on_empty_or_invalid_audio.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_voice_llm_integration.test_silent_audio_returns_no_food.executor&quot;: &quot;Debug&quot;,
+    &quot;Python tests.Python tests for test_voice_llm_integration.test_transcription_fails_on_empty_audio.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in test_LLM.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in test_database.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in test_gui_integration.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in test_llm_api.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in test_llm_api_2nd.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in test_statistic.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in test_voice_llm_db_integration.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in test_voice_llm_integration.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in voice_llm_db_integration.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python.mainScreen (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.mainScreen.executor&quot;: &quot;Run&quot;,
+    &quot;Python.voiceToText.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/PyCharm 2024.2.1/BiteTrack/2nd_tests&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\PyCharm 2024.2.1\BiteTrack\2nd_tests" />
