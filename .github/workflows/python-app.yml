@@ -45,6 +45,10 @@ jobs:
         Xvfb :99 -ac &
         export DISPLAY=:99
 
+    - name: Copy test database into correct location
+      run: |
+        cp 2nd_tests/test_data.db database/data.db
+
     - name: Run tests in 2nd_tests folder with force-flush output
       env:
         PYTEST_ADDOPTS: "-v -rA"
