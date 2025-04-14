@@ -20,13 +20,12 @@ Builder.load_file(kv_path)
 def setup_statistics_screen():
     db = Database()
     db.create_tables()
-    today = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     this_week = (datetime.now() - timedelta(days=datetime.now().weekday())).strftime('%Y-%m-%d %H:%M:%S')
     this_month = datetime.now().replace(day=2).strftime('%Y-%m-%d %H:%M:%S')
     bad_date = "2024-03-07 10:00:00"
 
     # Pridedame testinį produktą
-    db.add_product("TestProduktasD", today)
+    db.add_product("TestProduktasD")
     db.add_product("TestProduktasW", this_week)
     db.add_product("TestProduktasM", this_month)
     db.add_product("TestProduktasBD", bad_date)
@@ -59,6 +58,7 @@ def empty_statistics_screen():
 
 def test_product_shown_in_statistics_today(setup_statistics_screen):
     screen = setup_statistics_screen
+    screen.db.add_product("TestProduktasD")
     screen.load_statistics_data("Diena")
 
     found = any(
@@ -212,15 +212,6 @@ def test_product_name_updated_and_reflected_in_gui(setup_statistics_screen):
     assert any(new_name in t for t in texts), "Naujas pavadinimas nerastas GUI"
     assert all(old_name not in t for t in texts), "Senas pavadinimas vis dar rodomas GUI"
 
-import pytest
-from kivy.lang import Builder
-from kivy.uix.popup import Popup
-from kivy.uix.label import Label
-from kivy.uix.screenmanager import ScreenManager
-from kivy.base import EventLoop
-
-from database.database import Database
-from ui.statisticsScreen import StatisticsScreen
 
 def test_gui_shows_error_on_database_failure(monkeypatch):
     db = Database()
