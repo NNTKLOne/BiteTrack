@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6aea24bb-4b7a-4cfa-8795-cd12df36a44f" name="Changes" comment="Patvarkytas CI github actions">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/python-app.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/python-app.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2nd_tests/test_statistic.py" beforeDir="false" />
+    <list default="true" id="6aea24bb-4b7a-4cfa-8795-cd12df36a44f" name="Changes" comment="Testas, ar randami testiniai failas CI">
+      <change beforePath="$PROJECT_DIR$/2nd_tests/voice_llm_db_integration.py" beforeDir="false" afterPath="$PROJECT_DIR$/2nd_tests/test_voice_llm_db_integration.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,6 +102,22 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
+    <configuration name="Python tests in D:/PyCharm 2024.2.1/BiteTrack/2nd_tests/test_statistic.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="BiteTrack" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/2nd_tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/2nd_tests/test_statistic.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
     <configuration name="Python tests in test_gui_integration.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="BiteTrack" />
       <option name="ENV_FILES" value="" />
@@ -119,7 +134,7 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests in test_statistic.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests in test_voice_llm_db_integration.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="BiteTrack" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -131,7 +146,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/2nd_tests/test_statistic.py&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/2nd_tests/test_voice_llm_db_integration.py&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
@@ -151,27 +166,11 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests in voice_llm_db_integration.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
-      <module name="BiteTrack" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/2nd_tests" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/2nd_tests/voice_llm_db_integration.py&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python tests.Python tests in test_voice_llm_integration.py" />
-        <item itemvalue="Python tests.Python tests in voice_llm_db_integration.py" />
-        <item itemvalue="Python tests.Python tests in test_statistic.py" />
+        <item itemvalue="Python tests.Python tests in test_voice_llm_db_integration.py" />
+        <item itemvalue="Python tests.Python tests in D:/PyCharm 2024.2.1/BiteTrack/2nd_tests/test_statistic.py" />
         <item itemvalue="Python tests.Python tests in test_gui_integration.py" />
         <item itemvalue="Python tests.Python tests for test_voice_llm_integration.test_llm_response_on_empty_or_invalid_audio" />
       </list>
@@ -201,7 +200,7 @@
       <workItem from="1743954064555" duration="15000" />
       <workItem from="1744041740518" duration="10758000" />
       <workItem from="1744093912885" duration="2520000" />
-      <workItem from="1744653522198" duration="9239000" />
+      <workItem from="1744653522198" duration="9552000" />
     </task>
     <task id="LOCAL-00001" summary="Pridėta integracija su VTT prie UI">
       <option name="closed" value="true" />
@@ -411,7 +410,23 @@
       <option name="project" value="LOCAL" />
       <updated>1744665553084</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Patvarkytas CI github actions">
+      <option name="closed" value="true" />
+      <created>1744665879268</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1744665879268</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Testas, ar randami testiniai failas CI">
+      <option name="closed" value="true" />
+      <created>1744666078909</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1744666078909</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -461,7 +476,8 @@
     <MESSAGE value="Sutvarkytas įrašų ištrynimas" />
     <MESSAGE value="Pridėtas naujas VTT + LLM integracinis testas + testavimo failas Silent.wav" />
     <MESSAGE value="Patvarkytas CI github actions" />
-    <option name="LAST_COMMIT_MESSAGE" value="Patvarkytas CI github actions" />
+    <MESSAGE value="Testas, ar randami testiniai failas CI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Testas, ar randami testiniai failas CI" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
