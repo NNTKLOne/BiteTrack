@@ -1,6 +1,6 @@
 import sqlite3
 
-DB_FILE = "data.db"
+DB_FILE = "../database/data.db"
 
 class Database:
 
@@ -41,6 +41,14 @@ class Database:
         conn.commit()
         conn.close()
 
+    def update_product(self, product_id, product_name):
+        conn = self.get_connection()
+        cursor = conn.cursor()
+
+        cursor.execute('UPDATE Product SET product_name = ? WHERE id = ?', (product_name, product_id))
+        conn.commit()
+        conn.close()
+
     def get_all_products(self):
         conn = self.get_connection()
         cursor = conn.cursor()
@@ -48,6 +56,13 @@ class Database:
         products = cursor.fetchall()
         conn.close()
         return [dict(p) for p in products]
+
+    def delete_all_products(self):
+        conn = self.get_connection()
+        cursor = conn.cursor()
+        cursor.execute('DELETE FROM Product')
+        conn.commit()
+        conn.close()
 
     def delete_product(self, product_id):
         conn = self.get_connection()

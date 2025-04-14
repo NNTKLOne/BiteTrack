@@ -1,3 +1,4 @@
+from kivy.uix import popup
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.popup import Popup
 from kivy.uix.screenmanager import Screen
@@ -124,8 +125,7 @@ class StatisticsScreen(Screen):
         name_input = TextInput(text=product['product_name'])
 
         def save_changes(_):
-            db.delete_product(product['id'])
-            db.add_product(name_input.text)
+            db.update_product(product['id'], name_input.text)
             self.set_filter(self.ids.spinner.text)
             popup.dismiss()
 

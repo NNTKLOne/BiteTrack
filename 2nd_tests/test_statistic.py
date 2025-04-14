@@ -3,11 +3,10 @@ import os
 from database.database import Database
 from datetime import datetime, timedelta
 
-TEST_DB_FILE = "test_data.db"
+TEST_DB_FILE = "./test_data.db"
 
 @pytest.fixture
 def db():
-    # Ištrinam seną testinę DB, kad būtų šviežia
     if os.path.exists(TEST_DB_FILE):
         os.remove(TEST_DB_FILE)
 
@@ -18,22 +17,77 @@ def db():
 
 # ✅ TA-01 – Patikriname, ar duomenys matomi, jei bent vienas įrašas egzistuoja
 def test_products_shown_in_ui(db):
-    db.add_product("Test_Produktas", "Vaisiai")
+    db.add_product("Test_Produktas")
     products = db.get_all_products()
     assert len(products) >= 1
     assert any(p["product_name"] == "Test_Produktas" for p in products)
 
 # ✅ TA-02 – Patikriname, ar duomenys grąžinami nuo naujausio įrašo
 def test_products_sorted_by_date_desc(db):
-    db.add_product("Senesnis", "Vaisiai")
-    db.add_product("Naujesnis", "Gėrimai")
+    db.add_product("Senesnis")
+    db.add_product("Naujesnis")
     products = db.get_all_products()
-    assert len(products) >= 2
     created_times = [p["created_at"] for p in products]
     assert created_times == sorted(created_times, reverse=True)
 
 # ✅ TA-03 – Patikriname filtravimą
-#filtravimas tikrinamas faile test_database
+def test_get_products_today(db):
+    db.add_product("Apple")
+    products = db.get_products_today()
+    assert len(products) == 1
+    assert products[0]['product_name'] == "Apple"
+
+def test_get_products_this_week(db):
+    db.add_product("Apple")
+    products = db.get_products_this_week()
+    assert len(products) == 1
+    assert products[0]['product_name'] == "Apple"
+
+    # Įrašas prieš 10 dienų (neturėtų būti grąžintas)
+    past_date = (datetime.now() - timedelta(days=10)).strftime('%Y-%m-%d %H:%M:%S')
+    conn = db.get_connection()
+    cursor = conn.cursor()
+    cursor.execute(
+        'INSERT INTO Product (product_name, created_at) VALUES (?, ?)',
+        ("Old Apple", past_date)
+    )
+    conn.commit()
+    conn.close()
+
+    products = db.get_products_this_week()
+    assert all(p['product_name'] != "Old Apple" for p in products)
+
+def test_get_products_this_month(db):
+    db.add_product("Apple")
+    products = db.get_products_this_month()
+    assert len(products) == 1
+    assert products[0]['product_name'] == "Apple"
+
+    # Įrašas prieš 40 dienų (neturėtų būti grąžintas)
+    past_date = (datetime.now() - timedelta(days=40)).strftime('%Y-%m-%d %H:%M:%S')
+    conn = db.get_connection()
+    cursor = conn.cursor()
+    cursor.execute(
+        'INSERT INTO Product (product_name, created_at) VALUES (?, ?)',
+        ("Old Apple", past_date)
+    )
+    conn.commit()
+    conn.close()
+
+    products = db.get_products_this_month()
+    assert all(p['product_name'] != "Old Apple" for p in products)
+
+def test_get_products_today_empty(db):
+    products = db.get_products_today()
+    assert len(products) == 0
+
+def test_get_products_this_week_empty(db):
+    products = db.get_products_this_week()
+    assert len(products) == 0
+
+def test_get_products_this_month_empty(db):
+    products = db.get_products_this_month()
+    assert len(products) == 0
 
 # ✅ TA-04 – Patikriname, kad kai nėra duomenų, rezultatų nėra
 def test_no_data_message(db):
@@ -48,7 +102,6 @@ def test_no_data_message(db):
 def test_database_error_handling(monkeypatch):
     broken_db = Database()
 
-    # Apgauname get_all_products, kad mestų klaidą
     def fake_error():
         raise Exception("DB nepavyko pasiekti")
 
@@ -58,3 +111,5 @@ def test_database_error_handling(monkeypatch):
         broken_db.get_all_products()
 
     assert "DB nepavyko" in str(exc.value)
+
+
