@@ -5,7 +5,7 @@ from LLM import send_query
 from database.database import Database
 
 # ❗️Path to your real DB file
-DB_PATH = "data.db"
+DB_PATH = os.path.join(os.path.dirname(__file__), "data.db")
 
 # ❗️Audio file to be used for the test (must be in same folder as this test)
 AUDIO_FILE = os.path.join(os.path.dirname(__file__), "temp.wav")
