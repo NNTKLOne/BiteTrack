@@ -28,6 +28,11 @@ jobs:
       run: |
         export PYTHONPATH="${PYTHONPATH}:$(pwd)"
         pytest 2nd_tests/ -v --tb=short --disable-warnings | tee test-output.log
+
+    - name: Run tests in test folder (with PYTHONPATH)
+      run: |
+        export PYTHONPATH="${PYTHONPATH}:$(pwd)"
+        pytest test/ -v --tb=short --disable-warnings | tee test-output.log
     
     
 
