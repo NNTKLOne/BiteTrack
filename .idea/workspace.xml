@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6aea24bb-4b7a-4cfa-8795-cd12df36a44f" name="Changes" comment="Testas, ar veikia github actions">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2nd_tests/test_gui_integration.py" beforeDir="false" afterPath="$PROJECT_DIR$/2nd_tests/zzzzzzzzzz_est_gui_integration.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/data.db" beforeDir="false" afterPath="$PROJECT_DIR$/database/data.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2nd_tests/data.db" beforeDir="false" afterPath="$PROJECT_DIR$/2nd_tests/data.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2nd_tests/test_voice_llm_db_integration.py" beforeDir="false" afterPath="$PROJECT_DIR$/2nd_tests/test_voice_llm_db_integration.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +66,7 @@
     "Python tests.Python tests in test_llm_api.py.executor": "Run",
     "Python tests.Python tests in test_llm_api_2nd.py.executor": "Run",
     "Python tests.Python tests in test_statistic.py.executor": "Run",
+    "Python tests.Python tests in test_voice_llm_db_integration.py.executor": "Run",
     "Python tests.Python tests in test_voice_llm_integration.py.executor": "Run",
     "Python tests.Python tests in voice_llm_db_integration.py.executor": "Run",
     "Python.mainScreen (1).executor": "Run",
@@ -88,7 +91,7 @@
       <recent name="D:\PyCharm 2024.2.1\BiteTrack\2nd_tests" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Python tests for test_gui_integration.test_product_shown_in_statistics_today">
+  <component name="RunManager" selected="Python tests.Python tests in test_voice_llm_db_integration.py">
     <configuration name="Python tests for test_gui_integration.test_product_shown_in_statistics_today" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="BiteTrack" />
       <option name="ENV_FILES" value="" />
@@ -171,10 +174,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Python tests in test_voice_llm_db_integration.py" />
         <item itemvalue="Python tests.Python tests for test_gui_integration.test_product_shown_in_statistics_today" />
         <item itemvalue="Python tests.Python tests in zzzzzzzzzz_est_gui_integration.py" />
         <item itemvalue="Python tests.Python tests in test_voice_llm_integration.py" />
-        <item itemvalue="Python tests.Python tests in test_voice_llm_db_integration.py" />
         <item itemvalue="Python tests.Python tests in D:/PyCharm 2024.2.1/BiteTrack/2nd_tests/test_statistic.py" />
       </list>
     </recent_temporary>
@@ -203,7 +206,7 @@
       <workItem from="1743954064555" duration="15000" />
       <workItem from="1744041740518" duration="10758000" />
       <workItem from="1744093912885" duration="2520000" />
-      <workItem from="1744653522198" duration="9892000" />
+      <workItem from="1744653522198" duration="10290000" />
     </task>
     <task id="LOCAL-00001" summary="Pridėta integracija su VTT prie UI">
       <option name="closed" value="true" />
@@ -445,7 +448,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744666391655</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Testas, ar veikia github actions">
+      <option name="closed" value="true" />
+      <created>1744666501732</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1744666501732</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -527,7 +538,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/BiteTrack$mainScreen.coverage" NAME="mainScreen Coverage Results" MODIFIED="1744664235474" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ui" />
-    <SUITE FILE_PATH="coverage/BiteTrack$.coverage" NAME=" Coverage Results" MODIFIED="1744666449155" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2nd_tests" />
+    <SUITE FILE_PATH="coverage/BiteTrack$.coverage" NAME=" Coverage Results" MODIFIED="1744666641637" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2nd_tests" />
     <SUITE FILE_PATH="coverage/BiteTrack$main.coverage" NAME="mainPage Coverage Results" MODIFIED="1742398068325" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/BiteTrack$LLM.coverage" NAME="LLM Coverage Results" MODIFIED="1742839076835" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/BiteTrack$voiceToText.coverage" NAME="voiceToText Coverage Results" MODIFIED="1742843336418" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
