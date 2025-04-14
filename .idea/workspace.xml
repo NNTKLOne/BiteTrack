@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6aea24bb-4b7a-4cfa-8795-cd12df36a44f" name="Changes" comment="T">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/python-app.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/python-app.yml" afterDir="false" />
+    <list default="true" id="6aea24bb-4b7a-4cfa-8795-cd12df36a44f" name="Changes" comment="Test feature llm CI">
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -23,7 +23,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feature-LLM" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -50,37 +50,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python tests.Python tests for test_gui_integration.test_product_shown_in_statistics_today.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests for test_voice_llm_integration.test_audio_transcription_and_llm_response_lt.executor&quot;: &quot;Debug&quot;,
-    &quot;Python tests.Python tests for test_voice_llm_integration.test_llm_response_on_empty_or_invalid_audio.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests for test_voice_llm_integration.test_silent_audio_returns_no_food.executor&quot;: &quot;Debug&quot;,
-    &quot;Python tests.Python tests for test_voice_llm_integration.test_transcription_fails_on_empty_audio.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests in test_LLM.py.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests in test_VTT.py.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests in test_database.py.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests in test_gui_integration.py.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests in test_llm_api.py.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests in test_llm_api_2nd.py.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests in test_statistic.py.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests in test_voice_llm_db_integration.py.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests in test_voice_llm_integration.py.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests in voice_llm_db_integration.py.executor&quot;: &quot;Run&quot;,
-    &quot;Python.mainScreen (1).executor&quot;: &quot;Run&quot;,
-    &quot;Python.mainScreen.executor&quot;: &quot;Run&quot;,
-    &quot;Python.voiceToText.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/PyCharm 2024.2.1/BiteTrack/2nd_tests&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python tests.Python tests for test_gui_integration.test_product_shown_in_statistics_today.executor": "Run",
+    "Python tests.Python tests for test_voice_llm_integration.test_audio_transcription_and_llm_response_lt.executor": "Debug",
+    "Python tests.Python tests for test_voice_llm_integration.test_llm_response_on_empty_or_invalid_audio.executor": "Run",
+    "Python tests.Python tests for test_voice_llm_integration.test_silent_audio_returns_no_food.executor": "Debug",
+    "Python tests.Python tests for test_voice_llm_integration.test_transcription_fails_on_empty_audio.executor": "Run",
+    "Python tests.Python tests in test_LLM.py.executor": "Run",
+    "Python tests.Python tests in test_VTT.py.executor": "Run",
+    "Python tests.Python tests in test_database.py.executor": "Run",
+    "Python tests.Python tests in test_gui_integration.py.executor": "Run",
+    "Python tests.Python tests in test_llm_api.py.executor": "Run",
+    "Python tests.Python tests in test_llm_api_2nd.py.executor": "Run",
+    "Python tests.Python tests in test_statistic.py.executor": "Run",
+    "Python tests.Python tests in test_voice_llm_db_integration.py.executor": "Run",
+    "Python tests.Python tests in test_voice_llm_integration.py.executor": "Run",
+    "Python tests.Python tests in voice_llm_db_integration.py.executor": "Run",
+    "Python.mainScreen (1).executor": "Run",
+    "Python.mainScreen.executor": "Run",
+    "Python.voiceToText.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "feature-LLM",
+    "last_opened_file_path": "D:/PyCharm 2024.2.1/BiteTrack/2nd_tests",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\PyCharm 2024.2.1\BiteTrack\2nd_tests" />
@@ -566,7 +566,23 @@
       <option name="project" value="LOCAL" />
       <updated>1744670912448</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="Test feature llm CI">
+      <option name="closed" value="true" />
+      <created>1744671751782</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1744671751782</updated>
+    </task>
+    <task id="LOCAL-00047" summary="Test feature llm CI">
+      <option name="closed" value="true" />
+      <created>1744671849739</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1744671849739</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -594,7 +610,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Pridėta integracija su VTT prie UI" />
     <MESSAGE value="Pridėtas anglų ir lietuvių kalbos palaikymas, galima redaguoti LLM sugeneruotuos patiekalus - Backlogitem OPS-12 + (OPS-27 + OPS-23 - Augustas Česnavičius)" />
     <MESSAGE value="Nieko svarbaus" />
     <MESSAGE value="Atnaujinti LLM API unit testai 92% padengiamumas" />
@@ -619,33 +634,8 @@
     <MESSAGE value="Testas, ar randami testiniai failas CI" />
     <MESSAGE value="Testas, ar veikia github actions" />
     <MESSAGE value="T" />
-    <option name="LAST_COMMIT_MESSAGE" value="T" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/test/test_LLM.py</url>
-          <line>94</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/ui/mainScreen.py</url>
-          <line>38</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/voiceToText.py</url>
-          <line>140</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/2nd_tests/test_voice_llm_integration.py</url>
-          <line>62</line>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Test feature llm CI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Test feature llm CI" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/BiteTrack$mainScreen.coverage" NAME="mainScreen Coverage Results" MODIFIED="1744664235474" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ui" />

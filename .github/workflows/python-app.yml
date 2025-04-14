@@ -35,12 +35,15 @@ jobs:
         export PYTHONPATH="${PYTHONPATH}:$(pwd)"
         pytest 2nd_tests/ -v --tb=short --disable-warnings | tee test-output.log
 #
-    - name: Run tests in test folder (with PYTHONPATH)
-      env:
-        PYTEST_ADDOPTS: "-v -rA"
+    - name: Run pytest tests
       run: |
         export PYTHONPATH="${PYTHONPATH}:$(pwd)"
-        python -u -m pytest test/ | tee test-feature-output.log
+        pytest test/ -v --tb=short --disable-warnings | tee test-pytest-output.log
+
+    - name: Run unittest tests
+      run: |
+        export PYTHONPATH="${PYTHONPATH}:$(pwd)"
+        python -m unittest discover -s test -p "test_*.py" -v | tee test-unittest-output.log
     
     
 
