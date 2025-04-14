@@ -42,12 +42,6 @@ jobs:
     - name: List Python test files
       run: find 2nd_tests/ -name "test_*.py"
 
-    - name: Set up virtual display (Xvfb)
-      run: |
-        sudo apt-get install -y xvfb
-        Xvfb :99 -ac &
-        export DISPLAY=:99
-
     - name: Copy DB for GUI tests
       run: |
         mkdir -p ui
