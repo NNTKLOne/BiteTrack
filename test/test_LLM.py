@@ -130,7 +130,3 @@ class TestLlamaFunctions(unittest.TestCase):
         if "text" in response:
             self.assertIn("Kebabas", response["text"])
             self.assertIn("Makaronai", response["text"])
-
-
-if __name__ == "__main__":
-    unittest.main()

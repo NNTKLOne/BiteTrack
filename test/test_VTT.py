@@ -93,6 +93,3 @@ class TestVoiceToText(unittest.TestCase):
         result = self.vtt._run_transcription()
         self.assertEqual(result, "Klaida transkribuojant: Netikėta klaida: <class 'NoneType'>")
 
-
-if __name__ == '__main__':
-    unittest.main()

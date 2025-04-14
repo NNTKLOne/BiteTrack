@@ -109,6 +109,3 @@ class TestDatabase(unittest.TestCase):
     def test_get_products_this_month_empty(self):
         products = self.db.get_products_this_month()
         self.assertEqual(len(products), 0)
-
-if __name__ == '__main__':
-    unittest.main()
