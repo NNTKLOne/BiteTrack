@@ -8,6 +8,7 @@ import time
 
 class VoiceToText:
     MAX_RECORDING_DURATION = 30 # sekundes
+    MIN_RECORDING_DURATION = 3 # sekundes
     def __init__(self):
         self.is_recording = False
         self.recording_thread = None
@@ -83,6 +84,8 @@ class VoiceToText:
             recording_length = self._get_audio_length(filename)
             if recording_length > self.MAX_RECORDING_DURATION:
                 raise ValueError(f"Įrašymas per ilgas: ({recording_length:.2f} s). Max {self.MAX_RECORDING_DURATION}s.")
+            if recording_length < 3:
+                raise ValueError(f"Įrašymas per trumpas: ({recording_length:.2f} s). Min {self.MIN_RECORDING_DURATION}s.")
         
             result = self._run_transcription()
             Clock.schedule_once(lambda dt: callback(result))
