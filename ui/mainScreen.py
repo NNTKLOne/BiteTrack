@@ -35,8 +35,12 @@ class MainScreen(Screen):
             self.voice_to_text.is_recording = False
 
     def handle_transcription_result(self, result):
-        # Schedule UI update on the main thread
-        Clock.schedule_once(lambda dt: self.update_transcription(result))
+        def update(dt):
+            self.ids.transcription.text = result
+            if "Klaida" not in result:
+                self.send_to_llm()
+        Clock.schedule_once(update)
+
 
     def update_transcription(self, result):
         self.ids.transcription.text = result
