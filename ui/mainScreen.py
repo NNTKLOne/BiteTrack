@@ -60,20 +60,37 @@ class MainScreen(Screen):
         self.display_results(result)
 
         # OPS-39
-    def save_to_database(self, result):
 
-        """Save recognized products into the database"""
-        # Assuming result is a string with product names listed in a specific format
-        # Example result: "- Patiekalas: Kebabas su česnakiniu padažu\n- Patiekalas: Cepelinai su kiauliena"
+    def save_to_database(self):
+        """saugom produktus i DB"""
 
-        lines = result.split("\n")
-        for line in lines:
-            if line.strip().startswith("- Patiekalas:"):
-                product_name = line.split(":")[1].strip()
+        if not PRODUCTS:
+            return  # nieko nėra – nieko neįrašom
 
-                print(f"Product added: {product_name}")
-                # Save the product to the database
-                db.add_product(product_name)
+        for product in PRODUCTS:
+            product_name = product["product_name"]
+            print(f"Išsaugoma į DB: {product_name}")
+            db.add_product(product_name)
+
+        # Tuštinam laikiną sąrašą ir UI laukelį
+        self.ids.transcription.text = ""
+        PRODUCTS.clear()
+        self.update_product_list()
+
+        # Patvirtinimo langas
+        success_layout = BoxLayout(orientation='vertical', padding=10, spacing=10)
+        label = Label(text="Produktai sėkmingai išsaugoti į duomenų bazę.")
+        ok_button = Button(text="OK", size_hint=(1, None), height=40)
+        success_layout.add_widget(label)
+        success_layout.add_widget(ok_button)
+
+        success_popup = Popup(
+            title="Sėkminga operacija",
+            content=success_layout,
+            size_hint=(0.5, 0.3)
+        )
+        ok_button.bind(on_press=lambda btn: success_popup.dismiss())
+        success_popup.open()
 
     def display_results(self, result):
         """Display recognized products below the 'Atpažinti produktai' section."""
@@ -208,7 +225,7 @@ class MainScreen(Screen):
         popup_layout = BoxLayout(orientation='vertical', padding=10, spacing=10)
         product = next((p for p in PRODUCTS if p["id"] == product_id), None)
         product = product["product_name"]
-        label = Label(text=f"Ar tikrai norite ištrinti {product}?")
+        label = Label(text=f"Ar tikrai norite ištrinti {product} įrašą?")
         button_layout = BoxLayout(spacing=10)
 
         # Mygtukai "Taip" ir "Atšaukti"
@@ -249,9 +266,11 @@ class MainScreen(Screen):
         success_popup.open()
 
         #OPS-12
+
     def update_from_text(self):
-        #db.add_product("Kebabas su mėsa", "2025-01-12 08:30:00") # - jei noretume manualiai pridet kazkoki produkta, kad patikrint filtravima! 'FILTRAVIMAS'
         """Update the product list based on the TextInput content."""
+        global PRODUCTS
+        PRODUCTS.clear()  # išvalom seną sąrašą
         product_list = self.ids.product_list
         product_list.clear_widgets()
 
@@ -260,77 +279,21 @@ class MainScreen(Screen):
             return
 
         lines = text.split("\n")
+        id_counter = 1
 
         for line in lines:
             if line.strip().startswith("- Patiekalas:"):
                 product_name = line.split(":", 1)[1].strip()
 
-                # Add a button for each recognized product
-                product_button = Button(
-                    text=product_name,
-                    size_hint_y=None,
-                    height=40,
-                    on_press=lambda x, name=product_name: self.remove_product(name)
-                )
+                PRODUCTS.append({
+                    "id": id_counter,
+                    "product_name": product_name
+                })
+                id_counter += 1
 
-                delete_button = Button(
-                    text="Pašalinti",
-                    size_hint_x=None,
-                    width=100,  # Priklauso nuo to, kaip norite, kad jis atrodytų
-                    height=40,
-                    on_press=lambda btn, p_name=product_name: self.confirm_delete(p_name)
-                )
+        self.update_product_list()
 
-                # Įdėjome abu mygtukus į BoxLayout
-                product_layout = BoxLayout(orientation='horizontal', size_hint_y=None, height=40)
-                product_layout.add_widget(product_button)
-                product_layout.add_widget(delete_button)
 
-                # Pridedame šį BoxLayout į sąrašą
-                product_list.add_widget(product_layout)
-
-    def confirm_delete(self, product_name):
-        # Sukuriame patvirtinimo langą
-        popup_layout = BoxLayout(orientation='vertical', padding=10, spacing=10)
-        label = Label(text=f"Ar tikrai norite ištrinti {product_name}?")
-        button_layout = BoxLayout(spacing=10)
-
-        # Mygtukai "Taip" ir "Atšaukti"
-        confirm_button = Button(text="Taip", on_press=lambda btn: self.delete_product(product_name, popup))
-        cancel_button = Button(text="Atšaukti", on_press=lambda btn: popup.dismiss())
-
-        button_layout.add_widget(confirm_button)
-        button_layout.add_widget(cancel_button)
-
-        popup_layout.add_widget(label)
-        popup_layout.add_widget(button_layout)
-
-        popup = Popup(title="Patvirtinimas", content=popup_layout, size_hint=(0.5, 0.3))
-        popup.open()
-
-    def delete_product(self, product_name, popup):
-        # Ištriname produktą iš duomenų bazės (priklauso nuo jūsų duomenų bazės implementacijos)
-
-        # Uždaryti patvirtinimo langą
-        popup.dismiss()
-
-        # Atnaujinti produktų sąrašą (jei reikia)
-        self.update_product_list("")
-
-        # Sėkmingo ištrynimo popup su "OK" mygtuku
-        success_popup_layout = BoxLayout(orientation='vertical', padding=10, spacing=10)
-        success_label = Label(text=f"Įrašas '{product_name}' sėkmingai ištrintas.")
-        ok_button = Button(text="OK", on_press=lambda btn: success_popup.dismiss())
-
-        success_popup_layout.add_widget(success_label)
-        success_popup_layout.add_widget(ok_button)
-
-        success_popup = Popup(
-            title="Sėkminga operacija",
-            content=success_popup_layout,
-            size_hint=(0.5, 0.3)
-        )
-        success_popup.open()
 
 
 class MyApp(App):
