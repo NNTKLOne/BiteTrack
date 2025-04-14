@@ -1,131 +1,119 @@
+import os
+from groq import Groq
+from kivy.app import App
+from kivy.uix.label import Label
+from kivy.uix.button import Button
+from kivy.uix.floatlayout import FloatLayout
+from kivy.uix.spinner import Spinner
+from kivy.clock import Clock
+import threading
+from kivy.core.window import Window
 import sounddevice as sd
 import wave
-import threading
-import numpy as np
-from groq import Groq
-from kivy.clock import Clock
 
+class TranscriptionApp(App):
+    def build(self):
+        Window.size = (800, 600)
+        Window.clearcolor = (0.9, 0.9, 0.9, 1)
 
-class VoiceToText:
-    MAX_RECORDING_DURATION = 30 # sekundes
-    def __init__(self):
+        text_color = (1, 0, 0, 1)
+        font_size = 20
+        font_name = "Roboto"
+
+        layout = FloatLayout()
+
+        self.label = Label(
+            text="Click the microphone to record...",
+            halign="center",
+            valign="middle",
+            color=text_color,
+            font_size=font_size,
+            font_name=font_name,
+            size_hint=(1, 0.8),
+            pos_hint={'center_x': 0.5, 'center_y': 0.6}
+        )
+        layout.add_widget(self.label)
+
+        self.language_spinner = Spinner(
+            text='English',
+            values=('English', 'Lithuanian'),
+            size_hint=(None, None),
+            size=(200, 50),
+            pos_hint={'center_x': 0.5, 'top': 0.95}
+        )
+        layout.add_widget(self.language_spinner)
+
+        self.mic_button = Button(
+            size_hint=(None, None),
+            size=(128, 128),
+            pos_hint={'center_x': 0.5, 'y': 0},
+            background_normal="microphonePng.png",
+            background_down="microphonePng.png"
+        )
+        self.mic_button.bind(on_press=self.on_mic_button_press)
+        layout.add_widget(self.mic_button)
+
         self.is_recording = False
         self.recording_thread = None
-        self.audio_file_path = "temp.wav"
-        self.language_code = 'en'
-        self.client = Groq(api_key="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")
 
-    def start_recording(self, callback):
+        return layout
+
+    def on_mic_button_press(self, instance):
         if not self.is_recording:
             self.is_recording = True
-            self.recording_thread = threading.Thread(target=self._record_audio, args=(callback,))
+            self.label.text = "Recording... Click again to stop."
+            self.recording_thread = threading.Thread(target=self.record_audio)
             self.recording_thread.start()
         else:
             self.is_recording = False
+            self.label.text = "Transcribing..."
+            threading.Thread(target=self.run_transcription).start()
 
-    def _record_audio(self, callback):
-        try:
-            device_info = sd.query_devices(kind='input')
-            sample_rate = int(device_info['default_samplerate'])
-            channels = device_info['max_input_channels']
+    def record_audio(self):
+        device_info = sd.query_devices(kind='input')
+        sample_rate = int(device_info['default_samplerate'])
+        channels = device_info['max_input_channels']
+        filename = "temp.wav"
 
-            if channels < 1:
-                raise ValueError("Mikrofono klaida")
+        with wave.open(filename, 'wb') as wf:
+            wf.setnchannels(channels)
+            wf.setsampwidth(2)
+            wf.setframerate(sample_rate)
 
-            filename = self.audio_file_path
+            def audio_callback(indata, frames, time_info, status):
+                if status:
+                    print("Recording status:", status)
+                wf.writeframes(indata.tobytes())
+                if not self.is_recording:
+                    raise sd.CallbackStop()
 
-            with wave.open(filename, 'wb') as wf:
-                wf.setnchannels(channels)
-                wf.setsampwidth(2)  # 16-bit audio
-                wf.setframerate(sample_rate)
+            with sd.InputStream(samplerate=sample_rate, channels=channels, dtype='int16', callback=audio_callback):
+                while self.is_recording:
+                    sd.sleep(200)
 
-                def audio_callback(indata, frames, time_info, status):
-                    if status:
-                        print(f"Įrašinėjimo statusas: {status}")
+    def run_transcription(self):
+        client = Groq(api_key="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")
+        audio_file_path = "temp.wav"
+        language_code = self.get_language_code(self.language_spinner.text)
 
-                    # Normalize and amplify audio data
-                    gain = 10.0  # loudness
-                    amplified_data = np.clip(indata * gain, -32768, 32767).astype(np.int16)
+        with open(audio_file_path, "rb") as audio_file:
+            transcription = client.audio.transcriptions.create(
+                file=(audio_file_path, audio_file.read()),
+                model="whisper-large-v3-turbo",
+                language=language_code,
+                response_format="verbose_json",
+            )
+        Clock.schedule_once(lambda dt: self.update_label(transcription.text))
 
-                    # Write to the file
-                    wf.writeframes(amplified_data.tobytes())
-
-                    if not self.is_recording:
-                        raise sd.CallbackStop()
-
-                with sd.InputStream(samplerate=sample_rate, channels=channels, dtype='int16', callback=audio_callback):
-                    print("🔴 Įrašymas pradedamas...")
-                    duration = 0
-                    while self.is_recording:
-                        sd.sleep(200)
-                        duration +=(0.2)
-                        if duration > self.MAX_RECORDING_DURATION:
-                            self.is_recording = False
-                            raise ValueError("Įrašymas per ilgas (ilgiausias gali būti 30s)")
-
-            if self._is_audio_file_empty(filename):
-                raise ValueError("Audio failas tuščias. Įrašymo klaida!")
-
-            recording_length = self._get_audio_length(filename)
-            if recording_length > self.MAX_RECORDING_DURATION:
-                raise ValueError(f"Įrašymas per ilgas: ({recording_length:.2f} sekundės). Max kiek galima {self.MAX_RECORDING_DURATION} sekundžių.")
-            result = self._run_transcription()
-            Clock.schedule_once(lambda dt: callback(result))
-
-
-
-
-        except Exception as e:
-
-            error_message = f"Klaida įrašymo metu: {e}"  # Išsaugome klaidos pranešimą į kintamąjį
-
-            print(error_message)
-
-            Clock.schedule_once(lambda dt: callback(error_message))  # Naudojame išsaugotą reikšmę
-
-    def _is_audio_file_empty(self, filename):
-        try:
-            with wave.open(filename, 'rb') as wf:
-                frames = wf.getnframes()
-                return frames == 0
-        except Exception:
-            return True
-
-    def _run_transcription(self):
-        try:
-            with open(self.audio_file_path, "rb") as audio_file:
-                transcription = self.client.audio.transcriptions.create(
-                    file=(self.audio_file_path, audio_file.read()),
-                    model="whisper-large-v3-turbo",
-                    language=self.language_code,
-                    response_format="verbose_json",
-                )
-
-                # Ensure transcription is converted to a dictionary
-                if hasattr(transcription, 'text'):
-                    return transcription.text  # Access the text directly if available
-                elif isinstance(transcription, dict):
-                    return transcription.get("text", "")
-                else:
-                    raise TypeError(f"Netikėta klaida: {type(transcription)}")
-
-        except Exception as e:
-            return f"Klaida transkribuojant: {e}"
-        # OPS-27 + OPS-23 - Augustas Česnavičius
-    def set_language(self, language):
+    def get_language_code(self, language):
         language_map = {
             'English': 'en',
-            'Lithuanian': 'lt'
+            'Lithuanian':'lt'
         }
-        self.language_code = language_map.get(language, 'en')
+        return language_map.get(language, 'en')
+    zzzz
+    def update_label(self, text):
+        self.label.text = text
 
-    def _get_audio_length(self, filename):
-        """Apskaičiuoja garso failo trukmę sekundėmis."""
-        try:
-            with wave.open(filename, 'rb') as wf:
-                frames = wf.getnframes()
-                rate = wf.getframerate()
-                return frames / float(rate)
-        except Exception as e:
-            print(f"Klaida skaičiuojant garso ilgį: {e}")
-            return 0
+if __name__ == '__main__':
+    TranscriptionApp().run()
