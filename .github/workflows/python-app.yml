@@ -58,7 +58,15 @@ jobs:
       run: |
         cp 2nd_tests/data.db database/data.db
 
-    - name: Run tests in 2nd_tests folder with force-flush output
+    - name: Run integration tests in 2nd_tests folder with force-flush output
+      env:
+        PYTEST_ADDOPTS: "-v -rA"
+      run: |
+        export PYTHONPATH="${PYTHONPATH}:$(pwd)"
+        python -u -m pytest 2nd_tests/ | tee test-output.log || true
+        
+
+    - name: Run unit tests in test folder with force-flush output
       env:
         PYTEST_ADDOPTS: "-v -rA"
       run: |
