@@ -32,20 +32,11 @@ jobs:
     - name: Run tests in 2nd_tests folder (with PYTHONPATH)
       run: |
         export PYTHONPATH="${PYTHONPATH}:$(pwd)"
-        pytest 2nd_tests/ -v --tb=auto --disable-warnings \
-          --junitxml=test-results.xml | tee test-output.log
+        pytest 2nd_tests/ -v --disable-warnings | tee test-output.log
+    
 
-    - name: Upload test log
+    - name: Archive test logs
       uses: actions/upload-artifact@v4
       with:
         name: test-logs
         path: test-output.log
-
-    - name: Upload test results to GitHub UI
-      if: always()
-      uses: dorny/test-reporter@v1
-      with:
-        name: Pytest Results
-        path: test-results.xml
-        reporter: java-junit
-

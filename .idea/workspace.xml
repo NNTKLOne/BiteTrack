@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6aea24bb-4b7a-4cfa-8795-cd12df36a44f" name="Changes" comment="Pridėtas naujas VTT + LLM integracinis testas + testavimo failas Silent.wav">
+    <list default="true" id="6aea24bb-4b7a-4cfa-8795-cd12df36a44f" name="Changes" comment="Patvarkytas CI github actions">
       <change beforePath="$PROJECT_DIR$/.github/workflows/python-app.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/python-app.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2nd_tests/data.db" beforeDir="false" afterPath="$PROJECT_DIR$/2nd_tests/data.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2nd_tests/voice_llm_db_integration.py" beforeDir="false" afterPath="$PROJECT_DIR$/2nd_tests/voice_llm_db_integration.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/data.db" beforeDir="false" afterPath="$PROJECT_DIR$/database/data.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2nd_tests/test_statistic.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -204,7 +201,7 @@
       <workItem from="1743954064555" duration="15000" />
       <workItem from="1744041740518" duration="10758000" />
       <workItem from="1744093912885" duration="2520000" />
-      <workItem from="1744653522198" duration="8926000" />
+      <workItem from="1744653522198" duration="9239000" />
     </task>
     <task id="LOCAL-00001" summary="Pridėta integracija su VTT prie UI">
       <option name="closed" value="true" />
@@ -406,7 +403,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744665044235</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Patvarkytas CI github actions">
+      <option name="closed" value="true" />
+      <created>1744665553084</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1744665553084</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -455,7 +460,8 @@
     <MESSAGE value="test CI" />
     <MESSAGE value="Sutvarkytas įrašų ištrynimas" />
     <MESSAGE value="Pridėtas naujas VTT + LLM integracinis testas + testavimo failas Silent.wav" />
-    <option name="LAST_COMMIT_MESSAGE" value="Pridėtas naujas VTT + LLM integracinis testas + testavimo failas Silent.wav" />
+    <MESSAGE value="Patvarkytas CI github actions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Patvarkytas CI github actions" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
