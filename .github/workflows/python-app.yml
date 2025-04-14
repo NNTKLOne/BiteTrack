@@ -32,8 +32,7 @@ jobs:
     - name: Run tests in test folder (with PYTHONPATH)
       run: |
         export PYTHONPATH="${PYTHONPATH}:$(pwd)"
-        pytest test/ -v --tb=short --disable-warnings | tee test-output.log
-    
+        pytest test/ -v --tb=short --disable-warnings | tee test-feature-output.log
     
 
     - name: Archive test logs
