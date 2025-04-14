@@ -8,7 +8,7 @@ from database.database import Database
 DB_PATH = "data.db"
 
 # ❗️Audio file to be used for the test (must be in same folder as this test)
-AUDIO_FILE = os.path.join(os.path.dirname(__file__), "test.wav")
+AUDIO_FILE = os.path.join(os.path.dirname(__file__), "temp.wav")
 
 
 @pytest.fixture
