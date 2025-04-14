@@ -19,6 +19,7 @@ Builder.load_file(kv_path)
 @pytest.fixture
 def setup_statistics_screen():
     db = Database()
+    db.db_file = os.path.join(os.path.dirname(__file__), "data.db")
     db.create_tables()
     this_week = (datetime.now() - timedelta(days=datetime.now().weekday())).strftime('%Y-%m-%d %H:%M:%S')
     this_month = datetime.now().replace(day=2).strftime('%Y-%m-%d %H:%M:%S')
@@ -43,6 +44,7 @@ def setup_statistics_screen():
 @pytest.fixture
 def empty_statistics_screen():
     db = Database()
+    db.db_file = os.path.join(os.path.dirname(__file__), "data.db")
     db.create_tables()
     db.delete_all_products()  # čia naudojama tavo nauja funkcija
 
