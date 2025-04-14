@@ -48,7 +48,7 @@ jobs:
     - name: Copy DB for GUI tests
       run: |
         mkdir -p ui
-        cp 2nd_tests/test_data.db ui/data.db
+        cp 2nd_tests/data.db ui/data.db
     
 
     - name: Copy test database into correct location
