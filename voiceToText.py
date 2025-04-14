@@ -111,7 +111,7 @@ class TranscriptionApp(App):
             'Lithuanian':'lt'
         }
         return language_map.get(language, 'en')
-
+testing if builds with ahsdasda
     def update_label(self, text):
         self.label.text = text
 
