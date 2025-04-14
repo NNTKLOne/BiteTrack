@@ -20,49 +20,63 @@ class StatisticsScreen(Screen):
         self.set_filter('Visi')
 
     def load_statistics_data(self, filter_type):
-        #  Išvalome esamus duomenis
         stats_list = self.ids.stats_list
         stats_list.clear_widgets()
 
-        #  Pasirenkame duomenis iš DB pagal filtrą
-        if filter_type == 'Visi':
-            products = db.get_all_products()
-        elif filter_type == 'Diena':
-            products = db.get_products_today()
-        elif filter_type == 'Savaitė':
-            products = db.get_products_this_week()
-        elif filter_type == 'Mėnuo':
-            products = db.get_products_this_month()
-        else:
-            products = []
+        try:
+            if filter_type == 'Visi':
+                products = db.get_all_products()
+            elif filter_type == 'Diena':
+                products = db.get_products_today()
+            elif filter_type == 'Savaitė':
+                products = db.get_products_this_week()
+            elif filter_type == 'Mėnuo':
+                products = db.get_products_this_month()
+            else:
+                products = []
 
-            # Jei nėra duomenų – rodyti pranešimą
-        if not products:
-            stats_list.add_widget(Label(
-                text="Duomenų nerasta.",
-                size_hint_y=None,
-                height=40
-            ))
-            return
+            if not products:
+                stats_list.add_widget(Label(
+                    text="Duomenų nerasta.",
+                    size_hint_y=None,
+                    height=40
+                ))
+                return
 
-        for product in products:
-            row = BoxLayout(size_hint_y=None, height=40, spacing=10)
+            for product in products:
+                row = BoxLayout(size_hint_y=None, height=40, spacing=10)
 
-            product_button = Button(
-                text=f"{product['product_name']}",
-                on_press=lambda btn, p=product: self.edit_product(p)
-            )
+                product_button = Button(
+                    text=f"{product['product_name']}",
+                    on_press=lambda btn, p=product: self.edit_product(p)
+                )
 
-            delete_button = Button(
-                text="Pašalinti",
-                size_hint_x=None,
-                width=100,
-                on_press=lambda btn, p_id=product['id']: self.confirm_delete_popup(p_id)
-            )
+                delete_button = Button(
+                    text="Pašalinti",
+                    size_hint_x=None,
+                    width=100,
+                    on_press=lambda btn, p_id=product['id']: self.confirm_delete_popup(p_id)
+                )
 
-            row.add_widget(product_button)
-            row.add_widget(delete_button)
-            stats_list.add_widget(row)
+                row.add_widget(product_button)
+                row.add_widget(delete_button)
+                stats_list.add_widget(row)
+
+        except Exception as e:
+            self.show_error("Nepavyko užkrauti duomenų. Bandykite dar kartą.")
+            print(f"Klaida įkeliant statistiką: {e}")
+
+    def show_error(self, message):
+        content = BoxLayout(orientation="vertical", padding=10, spacing=10)
+        label = Label(text=message)
+        ok_button = Button(text="Gerai", size_hint_y=None, height=40)
+
+        popup = Popup(title="Klaida", content=content, size_hint=(0.7, 0.3), auto_dismiss=False)
+        ok_button.bind(on_release=popup.dismiss)
+
+        content.add_widget(label)
+        content.add_widget(ok_button)
+        popup.open()
 
     def confirm_delete_popup(self, product_id):
         content = BoxLayout(orientation="vertical", spacing=10, padding=10)

@@ -5,7 +5,7 @@ from datetime import datetime, timedelta
 
 from database.database import Database
 
-TEST_DB = "test_data.db"
+TEST_DB = "../test/test_data.db"
 
 class TestDatabase(unittest.TestCase):
 
