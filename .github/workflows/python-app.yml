@@ -71,10 +71,10 @@ jobs:
     - name: Run unit tests in test folder with force-flush output
       env:
         PYTEST_ADDOPTS: "-v -rA"
-      continue-on-error: true
+      continue-on-error: false
       run: |
         export PYTHONPATH="${PYTHONPATH}:$(pwd)"
-        python -u -m pytest test/ | tee test-output.log || true
+        python -u -m pytest test/ | tee test-unit-output.log || true
     
     
     
