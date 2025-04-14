@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6aea24bb-4b7a-4cfa-8795-cd12df36a44f" name="Changes" comment="Testas, ar veikia github actions">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2nd_tests/data.db" beforeDir="false" afterPath="$PROJECT_DIR$/2nd_tests/data.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2nd_tests/test_voice_llm_db_integration.py" beforeDir="false" afterPath="$PROJECT_DIR$/2nd_tests/test_voice_llm_db_integration.py" afterDir="false" />
-    </list>
+    <list default="true" id="6aea24bb-4b7a-4cfa-8795-cd12df36a44f" name="Changes" comment="Testas, ar veikia github actions" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -206,7 +200,7 @@
       <workItem from="1743954064555" duration="15000" />
       <workItem from="1744041740518" duration="10758000" />
       <workItem from="1744093912885" duration="2520000" />
-      <workItem from="1744653522198" duration="10290000" />
+      <workItem from="1744653522198" duration="10623000" />
     </task>
     <task id="LOCAL-00001" summary="Pridėta integracija su VTT prie UI">
       <option name="closed" value="true" />
@@ -456,7 +450,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744666501732</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Testas, ar veikia github actions">
+      <option name="closed" value="true" />
+      <created>1744666913051</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1744666913051</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -538,7 +540,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/BiteTrack$mainScreen.coverage" NAME="mainScreen Coverage Results" MODIFIED="1744664235474" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ui" />
-    <SUITE FILE_PATH="coverage/BiteTrack$.coverage" NAME=" Coverage Results" MODIFIED="1744666641637" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2nd_tests" />
+    <SUITE FILE_PATH="coverage/BiteTrack$.coverage" NAME=" Coverage Results" MODIFIED="1744666898720" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2nd_tests" />
     <SUITE FILE_PATH="coverage/BiteTrack$main.coverage" NAME="mainPage Coverage Results" MODIFIED="1742398068325" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/BiteTrack$LLM.coverage" NAME="LLM Coverage Results" MODIFIED="1742839076835" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/BiteTrack$voiceToText.coverage" NAME="voiceToText Coverage Results" MODIFIED="1742843336418" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

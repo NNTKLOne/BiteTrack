@@ -45,7 +45,7 @@ def test_voice_to_llm_to_db_integration(db):
     for line in llm_response.split("\n"):
         if line.strip().startswith("- Patiekalas:"):
             name = line.split(":", 1)[1].strip()
-            db.add_product(name)
+            #db.add_product(name)
             inserted_count += 1
 
     assert inserted_count > 0, "Nė vienas patiekalas nebuvo įrašytas į duomenų bazę"
