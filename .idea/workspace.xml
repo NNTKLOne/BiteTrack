@@ -85,7 +85,7 @@
       <recent name="D:\PyCharm 2024.2.1\BiteTrack\2nd_tests" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Python tests in test_voice_llm_db_integration.py">
+  <component name="RunManager" selected="Python tests.Python tests in test_gui_integration.py">
     <configuration name="Python tests for test_gui_integration.test_product_shown_in_statistics_today" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="BiteTrack" />
       <option name="ENV_FILES" value="" />
@@ -168,10 +168,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Python tests in test_voice_llm_db_integration.py" />
-        <item itemvalue="Python tests.Python tests for test_gui_integration.test_product_shown_in_statistics_today" />
         <item itemvalue="Python tests.Python tests in test_gui_integration.py" />
         <item itemvalue="Python tests.Python tests in test_voice_llm_integration.py" />
+        <item itemvalue="Python tests.Python tests in test_voice_llm_db_integration.py" />
+        <item itemvalue="Python tests.Python tests for test_gui_integration.test_product_shown_in_statistics_today" />
         <item itemvalue="Python tests.Python tests in D:/PyCharm 2024.2.1/BiteTrack/2nd_tests/test_statistic.py" />
       </list>
     </recent_temporary>

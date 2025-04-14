@@ -47,7 +47,7 @@ jobs:
 
     - name: Copy test database into correct location
       run: |
-        cp 2nd_tests/test_data.db database/data.db
+        cp 2nd_tests/data.db database/data.db
 
     - name: Run tests in 2nd_tests folder with force-flush output
       env:
