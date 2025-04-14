@@ -5,6 +5,7 @@ import numpy as np
 from groq import Groq
 from kivy.clock import Clock
 import time
+import os
 
 class VoiceToText:
     MAX_RECORDING_DURATION = 30 # sekundes
@@ -15,6 +16,15 @@ class VoiceToText:
         self.audio_file_path = "temp.wav"
         self.language_code = 'en'
         self.client = Groq(api_key="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")
+    
+
+    def check_file_size(self, filename, maxFileSize=5_000_000):
+            try:
+                file_size = os.path.getsize(filename)
+                return file_size > maxFileSize, file_size
+            except Exception as e:
+                print(f"Klaida tikrinant failo dydį: {e}")
+                return True, 0
 
     def start_recording(self, callback):
         if not self.is_recording:
@@ -86,6 +96,10 @@ class VoiceToText:
                 raise ValueError(f"Įrašymas per ilgas: ({recording_length:.2f} s). Max {self.MAX_RECORDING_DURATION}s.")
             if recording_length < 3:
                 raise ValueError(f"Įrašymas per trumpas: ({recording_length:.2f} s). Min {self.MIN_RECORDING_DURATION}s.")
+            too_large, file_size_bytes = self.check_file_size(filename)
+            if too_large:
+                raise ValueError(f"Failo dydis per didelis: ({file_size_bytes / 1024:.2f} KB). Max leidžiamas dydis – 6 MB.")
+
         
             result = self._run_transcription()
             Clock.schedule_once(lambda dt: callback(result))
