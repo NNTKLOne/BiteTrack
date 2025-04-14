@@ -18,7 +18,7 @@ class VoiceToText:
         self.client = Groq(api_key="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")
     
 
-    def check_file_size(self, filename, maxFileSize=5_000_000):
+    def check_file_size(self, filename, maxFileSize=6_000_000):
             try:
                 file_size = os.path.getsize(filename)
                 return file_size > maxFileSize, file_size
