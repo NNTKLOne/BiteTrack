@@ -32,11 +32,15 @@ jobs:
     - name: Run tests in test folder (with PYTHONPATH)
       run: |
         export PYTHONPATH="${PYTHONPATH}:$(pwd)"
-        pytest test/ -v --tb=short --disable-warnings | tee test-feature-output.log
+        pytest test/ -v -rA --tb=short | tee test-feature-output.log
     
 
     - name: Archive test logs
       uses: actions/upload-artifact@v4
       with:
         name: test-logs
-        path: test-output.log
+        path: |
+         test-output.log
+         test-feature-output.log
+
+
