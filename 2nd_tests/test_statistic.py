@@ -34,7 +34,7 @@ def test_products_sorted_by_date_desc(db):
 
 # ✅ TA-03 – Patikriname filtravimą
 #filtravimas tikrinamas faile test_database
-
+#
 # ✅ TA-04 – Patikriname, kad kai nėra duomenų, rezultatų nėra
 def test_no_data_message(db):
     # Ištrinam visus įrašus
