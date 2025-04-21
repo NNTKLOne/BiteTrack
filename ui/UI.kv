@@ -6,57 +6,63 @@
 
         Spinner:
             id: language_spinner
-            text: 'Pasirinkite kalbą'
-            values: ['Lithuanian', 'English']
-            size_hint_y: None
-            height: 40
+            text: 'Language'
+            values: ['English', 'Lithuanian']
+            size_hint_y: 0.1
             on_text: root.set_language(self.text)
 
         Button:
             id: record_button
-            text: "🎙️ Pradėti įrašymą"
-            size_hint_y: None
-            height: 50
+            text: "Pradėti įrašymą"
+            size_hint_y: 0.1
             on_press: root.start_recording()
 
         TextInput:
             id: transcription
-            size_hint_y: None
-            height: 100
-            readonly: True
+            hint_text: "Čia bus rodomas transkribuotas tekstas"
+            size_hint_y: 0.2
             multiline: True
 
-        Button:
-            id: save_button
-            text: "Išsaugoti"
-            size_hint_y: None
-            height: 40
-            on_press: root.save_to_database()
+        BoxLayout:
+            size_hint_y: 0.1
+            spacing: 10
 
-        Button:
-            id: cancel_button
-            text: "Atšaukti"
-            size_hint_y: None
-            height: 40
-            on_press: root.clear_text()
+            Button:
+                text: "Įrašyti pakeitimus"
+                on_press: root.update_from_text()
+
+        Label:
+            text: "Atpažinti produktai"
+            size_hint_y: 0.05
 
         ScrollView:
+            id: scroll_view
             size_hint_y: 0.4
-            GridLayout:
+
+            StackLayout:
                 id: product_list
-                cols: 1
                 size_hint_y: None
                 height: self.minimum_height
-                spacing: 5
-                row_default_height: 40
-                row_force_default: True
+                orientation: 'lr-tb'
 
-        Button:
-            id: reports_button
-            text: "📊 Ataskaitos"
-            size_hint_y: None
-            height: 40
-            on_press: root.load_statistics()
+        BoxLayout:
+            size_hint_y: 0.1
+            spacing: 10
+
+            Button:
+                id: save_button
+                text: "Išsaugoti"
+                on_press: root.save_to_database()
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: 0.1
+            spacing: 10
+
+            Button:
+                id: reports_button
+                text: "Ataskaitos"
+                on_press: root.load_statistics()
 
 
 <StatisticsScreen>:

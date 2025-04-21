@@ -134,20 +134,44 @@ class MainScreen(Screen):
 
     def edit_product(self, product_id):
         product = next((p for p in PRODUCTS if p["id"] == product_id), None)
-        self.product_input = TextInput(text=product["product_name"], size_hint_y=None, height=40)
+        if not product:
+            return
 
-        save_btn = Button(text=self.translator.t("save"), size_hint_y=None, height=40)
-        cancel_btn = Button(text=self.translator.t("cancel"), size_hint_y=None, height=40)
+        self.product_input = TextInput(
+            text=product["product_name"],
+            size_hint_y=None,
+            height=40
+        )
 
-        save_btn.bind(on_press=lambda btn: self.save_edited_product(product_id, popup))
-        cancel_btn.bind(on_press=lambda btn: popup.dismiss())
+        save_button = Button(
+            text=self.translator.t("save"),
+            size_hint_y=None,
+            height=40
+        )
+        cancel_button = Button(
+            text=self.translator.t("cancel"),
+            size_hint_y=None,
+            height=40
+        )
 
-        layout = BoxLayout(orientation='vertical', spacing=10, padding=10)
-        layout.add_widget(self.product_input)
-        layout.add_widget(BoxLayout(children=[save_btn, cancel_btn]))
+        popup_layout = BoxLayout(orientation='vertical', padding=10, spacing=10)
+        popup_layout.add_widget(self.product_input)
 
-        popup = Popup(title=self.translator.t("edit_product"), content=layout, size_hint=(0.6, 0.4))
+        buttons_layout = BoxLayout(size_hint_y=None, height=40, spacing=10)
+        buttons_layout.add_widget(save_button)
+        buttons_layout.add_widget(cancel_button)
+        popup_layout.add_widget(buttons_layout)
+
+        popup = Popup(
+            title=self.translator.t("edit_product"),
+            content=popup_layout,
+            size_hint=(0.5, 0.4)
+        )
+
+        save_button.bind(on_press=lambda btn: self.save_edited_product(product_id, popup))
+        cancel_button.bind(on_press=popup.dismiss)
         popup.open()
+
 
     def save_edited_product(self, product_id, popup):
         new_name = self.product_input.text.strip()
