@@ -1,68 +1,63 @@
-
-
 <MainScreen>:
     BoxLayout:
         orientation: 'vertical'
         padding: 10
         spacing: 10
 
-
         Spinner:
-            text: 'Language'
-            values: ['English', 'Lithuanian']
-            size_hint_y: 0.1
+            id: language_spinner
+            text: 'Pasirinkite kalbą'
+            values: ['Lithuanian', 'English']
+            size_hint_y: None
+            height: 40
             on_text: root.set_language(self.text)
 
-        # OPS-22
         Button:
-            text: "Pradėti įrašymą"
-            size_hint_y: 0.1
+            id: record_button
+            text: "🎙️ Pradėti įrašymą"
+            size_hint_y: None
+            height: 50
             on_press: root.start_recording()
 
         TextInput:
             id: transcription
-            hint_text: "Čia bus rodomas transkribuotas tekstas"
-            size_hint_y: 0.2
+            size_hint_y: None
+            height: 100
+            readonly: True
             multiline: True
 
-        BoxLayout:
-            size_hint_y: 0.1
-            spacing: 10
-            # OPS
-            Button:
-                text: "Įrašyti pakeitimus"
-                on_press: root.update_from_text()
+        Button:
+            id: save_button
+            text: "Išsaugoti"
+            size_hint_y: None
+            height: 40
+            on_press: root.save_to_database()
 
-        Label:
-            text: "Atpažinti produktai"
-            size_hint_y: 0.05
+        Button:
+            id: cancel_button
+            text: "Atšaukti"
+            size_hint_y: None
+            height: 40
+            on_press: root.clear_text()
 
         ScrollView:
-            id: scroll_view
-            size_hint_y: 0.5
-
-            StackLayout:
+            size_hint_y: 0.4
+            GridLayout:
                 id: product_list
+                cols: 1
                 size_hint_y: None
                 height: self.minimum_height
-                orientation: 'lr-tb'  # iš kairės į dešinę, iš viršaus į apačią
+                spacing: 5
+                row_default_height: 40
+                row_force_default: True
 
-        BoxLayout:
-            size_hint_y: 0.1
-            spacing: 10
+        Button:
+            id: reports_button
+            text: "📊 Ataskaitos"
+            size_hint_y: None
+            height: 40
+            on_press: root.load_statistics()
 
-            Button:
-                text: "Išsaugoti"
-                on_press: root.save_to_database()
-
-        BoxLayout:
-            orientation: 'horizontal'
-            size_hint_y: 0.1
-            spacing: 10
-
-            Button:
-                text: "Statistika ->"
-                on_press: root.load_statistics()
 
 <StatisticsScreen>:
     BoxLayout:
@@ -70,7 +65,6 @@
         padding: 10
         spacing: 10
 
-        #  Filtras (Dropdown)
         Spinner:
             id: spinner
             values: ['Visi', 'Diena', 'Savaitė', 'Mėnuo']
@@ -89,8 +83,8 @@
                 height: self.minimum_height
 
         Button:
+            id: back_button
             text: "Grįžti atgal"
             size_hint_y: None
             height: 40
             on_press: root.manager.current = 'main'
-
