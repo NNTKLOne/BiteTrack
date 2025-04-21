@@ -1,5 +1,4 @@
-﻿# translations.py
-TRANSLATIONS = {
+﻿TRANSLATIONS = {
     'en': {
         'start_recording': "Start Recording",
         'stop_recording': "Stop Recording",
@@ -8,7 +7,6 @@ TRANSLATIONS = {
         'delete': "Delete",
         'confirm': "Confirm",
         'language_changed': "Language changed to: {}",
-        'no_data': "No data found.",
         'product_saved': "Products successfully saved.",
         'product_deleted': "Product successfully deleted.",
         'edit_product': "Edit product",
@@ -18,14 +16,12 @@ TRANSLATIONS = {
         'no_data': "No data found.",
         'edited': "Product updated successfully.",
         'deleted': "Product deleted successfully.",
-        'go_back': "Go Back",
         'filter_all': "All",
         'filter_day': "Today",
         'filter_week': "This Week",
         'filter_month': "This Month",
-
-
-
+        'apply_changes': "Apply Changes",
+        'recognized_products': "Recognized Products",
     },
     'lt': {
         'start_recording': "Pradėti įrašymą",
@@ -35,20 +31,20 @@ TRANSLATIONS = {
         'delete': "Pašalinti",
         'confirm': "Patvirtinti",
         'language_changed': "Kalba pakeista į: {}",
-        'no_data': "Duomenų nerasta.",
         'product_saved': "Produktai sėkmingai išsaugoti.",
         'product_deleted': "Produktas sėkmingai pašalintas.",
         'edit_product': "Redaguoti produktą",
         'update': "Atnaujinti",
-        'go_back': "Grįžti",
+        'go_back': "Grįžti atgal",
         'reports': "Ataskaitos",
         'no_data': "Duomenų nerasta.",
         'edited': "Pavadinimas sėkmingai atnaujintas.",
         'deleted': "Produktas sėkmingai pašalintas.",
-        'go_back': "Grįžti atgal",
         'filter_all': "Visi",
         'filter_day': "Diena",
         'filter_week': "Savaitė",
         'filter_month': "Mėnuo",
+        'apply_changes': "Įrašyti pakeitimus",
+        'recognized_products': "Atpažinti produktai",
     }
 }

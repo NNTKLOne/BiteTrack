@@ -59,7 +59,9 @@ class MainScreen(Screen):
             "delete_button": "delete",
             "confirm_button": "confirm",
             "reports_button": "reports",
-            "record_button": "start_recording"
+            "record_button": "start_recording",
+            "apply_changes_button": "apply_changes",
+            "recognized_label": "recognized_products"
         }.items():
             if btn_id in self.ids:
                 self.ids[btn_id].text = self.translator.t(key)
