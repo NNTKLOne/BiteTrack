@@ -1,0 +1,59 @@
+Step 2: Create Fresh Environment
+Open PowerShell in your project folder:
+powershell# Navigate to project
+cd C:\Users\viliu\source\repos\BiteTrack-master
+
+# Create new virtual environment
+python -m venv env
+
+# Wait for it to finish (takes ~30 seconds)
+
+Step 3: Activate the Environment
+powershell# Allow script execution (if needed)
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+# Activate
+.\env\Scripts\Activate.ps1
+You should see (env) in your prompt:
+powershell(env) PS C:\Users\viliu\source\repos\BiteTrack-master>
+
+Step 4: Install Requirements
+powershell# Upgrade pip first (recommended)
+python -m pip install --upgrade pip
+
+# Install all requirements
+pip install -r requirements.txt
+Wait for installation to complete (~2-5 minutes).
+
+Step 5: Select Environment in VS Code
+
+Open VS Code
+Open your project folder: File → Open Folder → Select BiteTrack-master
+Press Ctrl+Shift+P (Command Palette)
+Type: "Python: Select Interpreter"
+You should see: .\env\Scripts\python.exe or Python 3.x.x ('env')
+Click on it to select
+
+If You Don't See It:
+
+Click "Enter interpreter path..."
+Click "Find..."
+Browse to: C:\Users\viliu\source\repos\BiteTrack-master\env\Scripts\python.exe
+Click Select
+
+
+Step 6: Verify Everything Works
+Check in VS Code Terminal:
+
+Open terminal (Ctrl+`)
+You should see (env) automatically
+Verify Python:
+
+powershell   python --version
+   where python
+   pip list
+Test Running Your App:
+
+Open ui/mainScreen.py
+Press Ctrl+F5 or click the ▷ Play button (top-right)
+Or right-click in editor → Run Python File in Terminal
