@@ -1,8 +1,12 @@
 import json
 import requests
-#
-# Your Groq API Key
-API_KEY = "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"
+import os
+from dotenv import load_dotenv
+
+# Groq API Key
+load_dotenv()
+
+API_KEY = os.getenv("API_KEY")
 BASE_URL = "https://api.groq.com/openai/v1/chat/completions"
 
 
@@ -17,7 +21,7 @@ def call_llama_api(query):
             "- Patiekalas: Kebabas su česnakiniu padažu\n"
             "- Patiekalas: Cepelinai su kiauliena\n"
             "---END EXAMPLE---\n\n"
-            "Patvarkyk rašybos klaidas, žodžių galūnes.\n"
+            "Patvarkyk rašybos klaidas, žodžių galūnes, kad būtų lietuviškos.\n"
             "Išrink tik maisto produktus ir sudaryk patiekalus iš toliau pateikto teksto aprašymo, kuris pateikiamas lietuvių kalba. Jei nebuvo pateikta maisto patiekalų, neatsakyk į žinutę.\n"
             "Surašykite juos atskirai nuorodų formatu:\n\n"
             "---INPUT---\n"
@@ -33,7 +37,7 @@ def call_llama_api(query):
         }
 
         data = {
-            "model": "llama3-70b-8192",
+            "model": "llama-3.3-70b-versatile",
             "messages": [{"role": "user", "content": prompt}],
             "temperature": 0.7,
             "max_tokens": 300,

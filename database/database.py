@@ -1,6 +1,7 @@
 import sqlite3
+import os
 
-DB_FILE = "../database/data.db"
+DB_FILE = os.path.join(os.path.dirname(__file__), "..", "database", "data.db")
 
 class Database:
 

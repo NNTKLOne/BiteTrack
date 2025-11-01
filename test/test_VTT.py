@@ -1,8 +1,9 @@
 import unittest
 from unittest.mock import patch, MagicMock, mock_open, ANY
 from voiceToText import VoiceToText
+from pathlib import Path
 
-TEMP_WAV_PATH = r'C:\Users\User\Desktop\Bitetrack\test\temp.wav'
+TEMP_WAV_PATH = Path(__file__).parent / 'temp.wav'
 
 
 class TestVoiceToText(unittest.TestCase):

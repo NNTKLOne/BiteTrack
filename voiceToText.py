@@ -6,6 +6,11 @@ from groq import Groq
 from kivy.clock import Clock
 import time
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+API_KEY = os.getenv("API_KEY")
 
 class VoiceToText:
     MAX_RECORDING_DURATION = 30 # sekundes
@@ -15,7 +20,7 @@ class VoiceToText:
         self.recording_thread = None
         self.audio_file_path = "temp.wav"
         self.language_code = 'en'
-        self.client = Groq(api_key="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")
+        self.client = Groq(api_key=API_KEY)
     
 
     def check_file_size(self, filename, maxFileSize=6_000_000):

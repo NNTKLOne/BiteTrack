@@ -3,7 +3,7 @@ import os
 from database.database import Database
 from datetime import datetime, timedelta
 
-TEST_DB_FILE = "test_data.db"
+TEST_DB_FILE = os.path.join(os.path.dirname(__file__), "test_data.db")
 
 @pytest.fixture
 def db():

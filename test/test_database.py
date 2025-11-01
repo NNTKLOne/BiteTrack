@@ -4,8 +4,9 @@ import sqlite3
 from datetime import datetime, timedelta
 
 from database.database import Database
+from pathlib import Path
 
-TEST_DB = "../test/test_data.db"
+TEST_DB = Path(__file__).parent / 'test_data.db'
 
 class TestDatabase(unittest.TestCase):
 
