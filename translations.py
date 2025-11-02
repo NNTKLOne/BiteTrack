@@ -1,4 +1,4 @@
-﻿TRANSLATIONS = {
+TRANSLATIONS = {
     'en': {
         'start_recording': "Start Recording",
         'stop_recording': "Stop Recording",

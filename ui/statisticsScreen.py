@@ -62,7 +62,7 @@ class StatisticsScreen(Screen):
             else:
                 products = []
 
-            if not products:
+            if products is None:
                 stats_list.add_widget(Label(
                     text=self.translator.t("no_data"),
                     size_hint_y=None,
