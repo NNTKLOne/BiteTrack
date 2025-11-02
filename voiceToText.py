@@ -23,10 +23,10 @@ class VoiceToText:
         self.client = Groq(api_key=API_KEY)
     
 
-    def check_file_size(self, filename, maxFileSize=6_000_000):
+    def check_file_size(self, filename, max_file_size=6_000_000):
             try:
                 file_size = os.path.getsize(filename)
-                return file_size > maxFileSize, file_size
+                return file_size > max_file_size, file_size
             except Exception as e:
                 print(f"Klaida tikrinant failo dydį: {e}")
                 return True, 0
