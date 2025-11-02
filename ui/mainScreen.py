@@ -177,7 +177,7 @@ class MainScreen(Screen):
 
     def save_edited_product(self, product_id, popup):
         new_name = self.product_input.text.strip()
-        if not new_name:
+        if new_name is None:
             self.show_error("Pavadinimas negali būti tuščias.")
             return
         if len(new_name) > 255:
