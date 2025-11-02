@@ -48,7 +48,7 @@ class VoiceToText:
                 raise ValueError("Mikrofono klaida")
 
             filename = self.audio_file_path
-            silence_threshold = 500  # Garso jautrumas, keisti priklausomai nuo background noice
+            silence_threshold = 500  # Garso jautrumas, keisti priklausomai nuo background noise
             silence_duration_limit = 2.0  # sekundes tylos
             silence_start_time = None
 
