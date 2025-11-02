@@ -60,7 +60,7 @@ jobs:
       
       - name: Run tests with coverage
         env:
-          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          API_KEY: ${{ secrets.GROQ_API_KEY }}
         run: python -m pytest test/ 2nd_tests/ --cov=. --cov-report=xml
         
       - name: Analyze with SonarCloud
