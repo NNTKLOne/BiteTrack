@@ -30,3 +30,5 @@ htmlcov/
 
 bin/
 obj/
+
+*.txt
